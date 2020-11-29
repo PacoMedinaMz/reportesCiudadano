@@ -1,0 +1,144 @@
+<section class="mb-4 text-center">
+
+  <div class="card text-center" style="border: 1px solid red; justify-content: center; width: 50%; margin: 0 auto">
+    <!-- TITULO -->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Reporte Urgente</h2>
+
+    <!-- EXPLICACION -->
+    <p class="text-center w-responsive mx-auto mb-5">Favor de llenar todos los campos y explicar como sucedieron los
+      hechos de manera breve y entendible, una vez enviado el reporte se
+      verificará la información y se enviará una unidad responsable al lugar de los hechos.
+    </p>
+
+    <!-- FORM DE URGENCIAS -->
+
+    <mdb-card>
+      <!-- IMAGEN -->
+      <div style="margin: 10px; ">
+        <mdb-card-img src="../../assets/banner.png" alt="Card image cap"></mdb-card-img>
+        <a>
+          <div class="mask"></div>
+        </a>
+      </div>
+      <!-- END IMAGEN -->
+
+
+      <!-- AQUI INICIA EL CONTENIDO DEL FORM -->
+      <mdb-card-body>
+        <div class="row">
+
+          <div class="col-md-9 mb-md-0 mb-5">
+
+            <!-- FORM --> 
+            <form id="contact-form" name="contact-form" action="" method="POST">
+               
+              <!-- DIV ROW -->
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <label for="calle" class=""><b>Calle</b></label>
+                    <br>
+                    <input type="text" id="calle" name="calle" class="form-control" required>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <label for="frac"><b>Fraccionamiento</b></label>
+                    <br>
+                    <input type="text" id="frac" name="frac" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <label for="tel"><b>Telefono (Del autor del reporte)</b></label>
+                    <br>
+                    <input type="tel" id="tel" name="tel" class="form-control" required>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <mdb-select [options]="optionsSelect" placeholder="Selecciona tu opción"></mdb-select>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+
+
+                <div class="col-md-12">
+
+                  <div class="md-form">
+                    <label for="message"><b>Describe la situación</b></label>
+                    <br>
+                    <textarea type="text" id="message" name="message" rows="2"
+                      class="form-control md-textarea"></textarea>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </form>
+
+            <!-- END-FORM -->
+
+            <!-- BOTON DEL FORM -->
+            <div class="text-center text-md-left">
+              <a class="btn btn-danger" style="color: whitesmoke;"
+                onclick="document.getElementById('contact-form').submit();">Enviar</a>
+            </div>
+            <!-- END BOTON DEL FORM -->
+
+            <div class="status"></div>
+          </div>
+
+
+          <!-- ICONOS E INFO EXTRA -->
+
+          <div class="col-md-3 text-center">
+            <br>
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                <p>Aguascalientes, Ags</p>
+              </li>
+
+              <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                <p>Emergencias Generales</p>
+                <p>Tel: 911</p>
+              </li>
+
+              <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                <p>rep_ciudadano@gmail.com</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ICONOS E INFO EXTRA -->
+
+        </div>
+
+        <!-- END DIV ROW -->
+
+      </mdb-card-body>
+      <!-- END-CONTENIDO -->
+    </mdb-card>
+
+  </div>
+
+  <div style="justify-content:center">
+    <button type="button" class="btn btn-danger btn-rounded mx-0" routerLink="/reportes" style="margin: 15px;">Regresar</button>
+  </div>
+
+</section>
