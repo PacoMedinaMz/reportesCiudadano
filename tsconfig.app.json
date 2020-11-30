@@ -10,5 +10,12 @@
   ],
   "include": [
     "src/**/*.d.ts"
+<<<<<<< HEAD
+=======
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+>>>>>>> d2f8366... Primer avance del proyecto
   ]
 }

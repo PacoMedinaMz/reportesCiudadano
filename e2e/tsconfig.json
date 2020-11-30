@@ -3,7 +3,11 @@
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
     "module": "commonjs",
+<<<<<<< HEAD
     "target": "es5",
+=======
+    "target": "es2018",
+>>>>>>> d2f8366... Primer avance del proyecto
     "types": [
       "jasmine",
       "jasminewd2",
