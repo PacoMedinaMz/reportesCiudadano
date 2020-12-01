@@ -7,26 +7,10 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-<<<<<<< HEAD
-<<<<<<< HEAD
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-=======
-=======
->>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
-    "module": "es2020",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-<<<<<<< HEAD
->>>>>>> d2f8366... Primer avance del proyecto
-=======
->>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "lib": [
       "es2018",
       "dom"

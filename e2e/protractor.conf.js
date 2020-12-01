@@ -13,15 +13,7 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-<<<<<<< HEAD
-<<<<<<< HEAD
     browserName: 'chrome'
-=======
-    'browserName': 'chrome'
->>>>>>> d2f8366... Primer avance del proyecto
-=======
-    'browserName': 'chrome'
->>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
