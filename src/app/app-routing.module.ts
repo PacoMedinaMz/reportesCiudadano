@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 const routes: Routes = [];
@@ -8,6 +9,8 @@ const routes: Routes = [];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
 import { HomeComponent } from '../app/home/home.component';
 import { ReportesComponent} from '../app/reportes/reportes.component';
 import { ConsultasComponent} from '../app/consultas/consultas.component';
@@ -37,7 +40,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
 
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

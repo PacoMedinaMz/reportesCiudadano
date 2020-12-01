@@ -8,6 +8,7 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
     keys(): string[];
@@ -17,6 +18,9 @@ declare const require: {
 =======
 declare const require: any;
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+declare const require: any;
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,6 +14,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -64,7 +67,10 @@ import { PgTresComponent } from './pg-tres/pg-tres.component'
     WavesModule, 
     CardsModule,
     SelectModule
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
   ],
   providers: [],
   bootstrap: [AppComponent]

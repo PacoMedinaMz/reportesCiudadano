@@ -9,21 +9,30 @@
     },
     "array-type": false,
 <<<<<<< HEAD
+<<<<<<< HEAD
     "arrow-return-shorthand": true,
     "curly": true,
 =======
     "arrow-parens": false,
     "arrow-return-shorthand": true,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "arrow-parens": false,
+    "arrow-return-shorthand": true,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "deprecation": {
       "severity": "warning"
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "curly": true,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "curly": true,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "directive-class-suffix": true,
     "directive-selector": [
       true,
@@ -49,18 +58,26 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "interface-name": false,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "interface-name": false,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "max-classes-per-file": false,
     "max-line-length": [
       true,
       140
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "member-access": false,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "member-access": false,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "member-ordering": [
       true,
       {
@@ -73,9 +90,13 @@
       }
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "no-consecutive-blank-lines": false,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "no-consecutive-blank-lines": false,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "no-console": [
       true,
       "debug",
@@ -98,16 +119,24 @@
       "as-needed"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "object-literal-sort-keys": false,
     "ordered-imports": false,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "quotemark": [
       true,
       "single"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
@@ -116,7 +145,10 @@
     "no-output-native": true,
     "no-output-on-prefix": true,
     "no-output-rename": true,
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "semicolon": {
       "options": [
         "always"
@@ -132,11 +164,17 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "no-outputs-metadata-property": true,
     "template-banana-in-box": true,
     "template-no-negated-async": true,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "no-outputs-metadata-property": true,
+    "template-banana-in-box": true,
+    "template-no-negated-async": true,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "typedef-whitespace": {
       "options": [
         {
@@ -156,10 +194,15 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    "use-lifecycle-interface": true,
+    "use-pipe-transform-interface": true,
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "variable-name": {
       "options": [
         "ban-keywords",
@@ -177,6 +220,7 @@
         "check-typecast"
       ]
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
@@ -193,6 +237,9 @@
 =======
     }
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    }
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
   },
   "rulesDirectory": [
     "codelyzer"

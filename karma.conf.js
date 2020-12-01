@@ -17,10 +17,14 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
 <<<<<<< HEAD
+<<<<<<< HEAD
       dir: require('path').join(__dirname, './coverage/reportesCiudadanos'),
 =======
       dir: require('path').join(__dirname, './coverage/mdb-angular-free'),
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+      dir: require('path').join(__dirname, './coverage/mdb-angular-free'),
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },

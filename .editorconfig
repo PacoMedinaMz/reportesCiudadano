@@ -8,12 +8,7 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-<<<<<<< HEAD
 [*.ts]
 quote_type = single
-
-=======
->>>>>>> d2f8366... Primer avance del proyecto
-[*.md]
 max_line_length = off
 trim_trailing_whitespace = false

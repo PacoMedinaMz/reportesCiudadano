@@ -4,10 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "reportesCiudadanos": {
       "projectType": "application",
       "schematics": {},
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
     "mdb-angular-free": {
       "projectType": "application",
       "schematics": {
@@ -15,7 +18,10 @@
           "style": "scss"
         }
       },
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,10 +30,14 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "outputPath": "dist/reportesCiudadanos",
 =======
             "outputPath": "dist/mdb-angular-free",
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+            "outputPath": "dist/mdb-angular-free",
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,10 +49,13 @@
             ],
             "styles": [
 <<<<<<< HEAD
+<<<<<<< HEAD
               "src/styles.css"
             ],
             "scripts": []
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
               "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
               "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
               "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
@@ -55,7 +68,10 @@
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/hammerjs/hammer.min.js"
             ]
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
           },
           "configurations": {
             "production": {
@@ -92,18 +108,24 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "browserTarget": "reportesCiudadanos:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "reportesCiudadanos:build:production"
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
             "browserTarget": "mdb-angular-free:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "mdb-angular-free:build:production"
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
             }
           }
         },
@@ -111,10 +133,14 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "browserTarget": "reportesCiudadanos:build"
 =======
             "browserTarget": "mdb-angular-free:build"
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+            "browserTarget": "mdb-angular-free:build"
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
           }
         },
         "test": {
@@ -130,10 +156,14 @@
             ],
             "styles": [
 <<<<<<< HEAD
+<<<<<<< HEAD
               "src/styles.css"
 =======
               "src/styles.scss"
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+              "src/styles.scss"
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
             ],
             "scripts": []
           }
@@ -156,22 +186,29 @@
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "devServerTarget": "reportesCiudadanos:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "reportesCiudadanos:serve:production"
 =======
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
             "devServerTarget": "mdb-angular-free:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "mdb-angular-free:serve:production"
+<<<<<<< HEAD
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
             }
           }
         }
       }
+<<<<<<< HEAD
 <<<<<<< HEAD
     }},
   "defaultProject": "reportesCiudadanos"
@@ -182,3 +219,9 @@
   "defaultProject": "mdb-angular-free"
 }
 >>>>>>> d2f8366... Primer avance del proyecto
+=======
+    }
+  },
+  "defaultProject": "mdb-angular-free"
+}
+>>>>>>> 9caf66853a3d89199d8bd62abcbd95d4015e3388
