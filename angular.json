@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-<<<<<<< HEAD
     "reportesCiudadanos": {
       "projectType": "application",
       "schematics": {},
-=======
-    "mdb-angular-free": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
->>>>>>> d2f8366... Primer avance del proyecto
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,11 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-<<<<<<< HEAD
             "outputPath": "dist/reportesCiudadanos",
-=======
-            "outputPath": "dist/mdb-angular-free",
->>>>>>> d2f8366... Primer avance del proyecto
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -38,24 +24,9 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "src/styles.css"
             ],
             "scripts": []
-=======
-              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
-              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
-              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
-              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
-              "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
-              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
-              "src/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/chart.js/dist/Chart.js",
-              "node_modules/hammerjs/hammer.min.js"
-            ]
->>>>>>> d2f8366... Primer avance del proyecto
           },
           "configurations": {
             "production": {
@@ -91,30 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-<<<<<<< HEAD
             "browserTarget": "reportesCiudadanos:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "reportesCiudadanos:build:production"
-=======
-            "browserTarget": "mdb-angular-free:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "mdb-angular-free:build:production"
->>>>>>> d2f8366... Primer avance del proyecto
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-<<<<<<< HEAD
             "browserTarget": "reportesCiudadanos:build"
-=======
-            "browserTarget": "mdb-angular-free:build"
->>>>>>> d2f8366... Primer avance del proyecto
           }
         },
         "test": {
@@ -129,11 +88,7 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "src/styles.css"
-=======
-              "src/styles.scss"
->>>>>>> d2f8366... Primer avance del proyecto
             ],
             "scripts": []
           }
@@ -155,30 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-<<<<<<< HEAD
             "devServerTarget": "reportesCiudadanos:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "reportesCiudadanos:serve:production"
-=======
-            "devServerTarget": "mdb-angular-free:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "mdb-angular-free:serve:production"
->>>>>>> d2f8366... Primer avance del proyecto
             }
           }
         }
       }
-<<<<<<< HEAD
     }},
   "defaultProject": "reportesCiudadanos"
 }
-=======
-    }
-  },
-  "defaultProject": "mdb-angular-free"
-}
->>>>>>> d2f8366... Primer avance del proyecto

@@ -8,22 +8,13 @@
       ]
     },
     "array-type": false,
-<<<<<<< HEAD
     "arrow-return-shorthand": true,
     "curly": true,
-=======
-    "arrow-parens": false,
-    "arrow-return-shorthand": true,
->>>>>>> d2f8366... Primer avance del proyecto
     "deprecation": {
       "severity": "warning"
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
-<<<<<<< HEAD
-=======
-    "curly": true,
->>>>>>> d2f8366... Primer avance del proyecto
     "directive-class-suffix": true,
     "directive-selector": [
       true,
@@ -48,19 +39,11 @@
         "spaces"
       ]
     },
-<<<<<<< HEAD
-=======
-    "interface-name": false,
->>>>>>> d2f8366... Primer avance del proyecto
     "max-classes-per-file": false,
     "max-line-length": [
       true,
       140
     ],
-<<<<<<< HEAD
-=======
-    "member-access": false,
->>>>>>> d2f8366... Primer avance del proyecto
     "member-ordering": [
       true,
       {
@@ -72,10 +55,6 @@
         ]
       }
     ],
-<<<<<<< HEAD
-=======
-    "no-consecutive-blank-lines": false,
->>>>>>> d2f8366... Primer avance del proyecto
     "no-console": [
       true,
       "debug",
@@ -97,26 +76,10 @@
       true,
       "as-needed"
     ],
-<<<<<<< HEAD
-=======
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
->>>>>>> d2f8366... Primer avance del proyecto
     "quotemark": [
       true,
       "single"
     ],
-<<<<<<< HEAD
-=======
-    "trailing-comma": false,
-    "no-conflicting-lifecycle": true,
-    "no-host-metadata-property": true,
-    "no-input-rename": true,
-    "no-inputs-metadata-property": true,
-    "no-output-native": true,
-    "no-output-on-prefix": true,
-    "no-output-rename": true,
->>>>>>> d2f8366... Primer avance del proyecto
     "semicolon": {
       "options": [
         "always"
@@ -131,12 +94,6 @@
         "named": "never"
       }
     },
-<<<<<<< HEAD
-=======
-    "no-outputs-metadata-property": true,
-    "template-banana-in-box": true,
-    "template-no-negated-async": true,
->>>>>>> d2f8366... Primer avance del proyecto
     "typedef-whitespace": {
       "options": [
         {
@@ -155,11 +112,6 @@
         }
       ]
     },
-<<<<<<< HEAD
-=======
-    "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true,
->>>>>>> d2f8366... Primer avance del proyecto
     "variable-name": {
       "options": [
         "ban-keywords",
@@ -176,7 +128,6 @@
         "check-type",
         "check-typecast"
       ]
-<<<<<<< HEAD
     },
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
@@ -190,9 +141,6 @@
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
-=======
-    }
->>>>>>> d2f8366... Primer avance del proyecto
   },
   "rulesDirectory": [
     "codelyzer"

@@ -10,11 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-<<<<<<< HEAD
     expect(page.getTitleText()).toEqual('reportesCiudadanos app is running!');
-=======
-    expect(page.getTitleText()).toEqual('Welcome to mdb-angular-free!');
->>>>>>> d2f8366... Primer avance del proyecto
   });
 
   afterEach(async () => {
