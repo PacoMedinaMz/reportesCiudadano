@@ -20,7 +20,8 @@ import { ToastModule, IconsModule, SelectModule } from 'ng-uikit-pro-standard';
 import { ButtonsModule, WavesModule, CardsModule, } from 'angular-bootstrap-md';
 import { PgUnoComponent } from './pg-uno/pg-uno.component';
 import { PgDosComponent } from './pg-dos/pg-dos.component';
-import { PgTresComponent } from './pg-tres/pg-tres.component'
+import { PgTresComponent } from './pg-tres/pg-tres.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PgTresComponent } from './pg-tres/pg-tres.component'
     ButtonsModule, 
     WavesModule, 
     CardsModule,
-    SelectModule
+    SelectModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

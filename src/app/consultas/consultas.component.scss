@@ -1,0 +1,12 @@
+.active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #b30909;
+    box-shadow: 0 1px 0 0 #8d0505;
+  }
+
+
+.mat-expansion-panel{
+    border-left: 1px solid red; 
+    border-right: 1px solid red; 
+}
+
+ 
