@@ -1,54 +1,32 @@
 <div class="form" #div_form style="display: block;">
 
     <div class="form-header">
-        <img
-        src="../../../../assets/logo.png">
-        <h4>E-Tienda</h4>
+        <img src="../../../../assets/banner.png">
+        <h4>Reporte ciudadano</h4>
         <h5 class="text-muted">Registrar al sistema</h5>
 
     </div>
 
     <form [formGroup]="registerForm">
         <div class="row inputs">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="group form-control">
                     <input type="text" required formControlName="nombre">
                     <label>Nombre</label>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="group form-control">
                     <input type="text" required formControlName="ape_pat">
                     <label>Apellido paterno</label>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="group form-control">
                     <input type="text" required formControlName="ape_mat">
                     <label>Apellido materno</label>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="group form-control">
-                    <p style="text-align: left;
-                    color: #999;
-                    padding-left: 6px;">Fecha de nacimiento</p>
-                    <input type="date" required formControlName="nacimiento" placeholder="">
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="group form-control">
-                    <p style="text-align: left;
-                    color: #999;
-                    padding-left: 6px;">Sexo</p>
-                    <select name="sexo" id="sexo" class="form-control" style="text-align: left;">
-                        <option value="F">Femenino</option>
-                        <option value="M">Masculino</option>
-                    </select>
                 </div>
             </div>
 
@@ -59,14 +37,14 @@
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-12">
                 <div class="group form-control">
                     <input type="password" required #pass formControlName="pass">
                     <label>Contraseña</label>
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-11">
                 <div class="group form-control">
                     <input type="password" required #pass2 formControlName="pass2">
                     <label>Confirmar</label>
@@ -81,10 +59,34 @@
                     <i class="fa fa-eye-slash" aria-hidden="true"></i>
                 </div>
             </div>
+
+            
+
+            <div class="col-md-12 mt-5">
+                <div class="group form-control">
+                    <p style="text-align: left;
+                    color: #999;">Fecha de nacimiento</p>
+                    <input type="date" required formControlName="nacimiento">
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-5">
+                <div class="group form-control">
+                    <p style="text-align: left;
+                    color: #999;">Sexo</p>
+                    <select formControlName="sexo" class="form-control" style="text-align: left;">
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </form>
-    <a [routerLink]="['/login']">Ya tengo una cuenta</a>
-    <button class="btn" (click)="clickSiguiente();" #btnSiguiente>Registrar</button>
+
+    <div class="mt-5">
+        <a>Ya tengo una cuenta</a>
+        <button class="btn" (click)="clickSiguiente();" #btnSiguiente>Registrar</button>
+    </div>
 
 
     <div class="loader" style="display: none;" #loader>

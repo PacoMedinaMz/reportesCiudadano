@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
   viendoPass = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -62,38 +63,42 @@ export class RegisterComponent implements OnInit {
     this.loadingAnimation();
 
     var nombre = this.registerForm.value.nombre.trim();
+    var apePat = this.registerForm.value.ape_pat.trim();
+    var apeMat = this.registerForm.value.ape_mat.trim();
+    var nacimiento = this.registerForm.value.nacimiento.trim();
+    var sexo = this.registerForm.value.sexo.trim();
     var correo = this.registerForm.value.correo.trim();
     var pass = this.registerForm.value.pass.trim();
 
-    var esto = this;
+    var registro =
+    {
+      "nombre": nombre,
+      "apePat": apePat,
+      "apeMat": apeMat,
+      "nacimiento": nacimiento,
+      "sexo": sexo,
+      "correo": correo,
+      "pass": pass,
+    };
 
-    /*var result = await this.authSvc.fireRegister(correo, pass).then((result) => {
-      console.log(result.user.uid);
+    this.http.post<any>('http://localhost:4201/registro', registro).subscribe({
+      next: data => {
+        console.log(data);
+        if (data.status === 'error') {
 
-      esto.registerSuccess(nombre, result.user.uid);
-    }).catch(function (err) {
-      console.log("ERROR:");
-      console.log(err);
-
-      var error = "";
-      if (err.code === 'auth/email-already-in-use') {
-        error = "Este correo ya está registrado";
-      } else if (err.code === 'auth/invalid-email') {
-        error = "Ingresa un correo válido";
+        } else {
+          this.registerSuccess(nombre);
+        }
+      },
+      error: error => {
+        console.error('ERROR al registrar.', error.message);
       }
-
-      Swal.fire({
-        title: '¡Oops!',
-        text: error,
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      })
-    });*/
+    })
 
     this.finishLoadingAnimation();
   }
 
-  registerSuccess(nombre: string, id: string) {
+  registerSuccess(nombre: string) {
     /*let usuario = new Usuario();
     usuario.nombre = this.registerForm.value.nombre.trim();
     usuario.correo = this.registerForm.value.correo.trim();
@@ -106,7 +111,7 @@ export class RegisterComponent implements OnInit {
 
     Swal.fire({
       icon: 'success',
-      title: '¡Bienvenido!',
+      title: '¡Bienvenido ' + nombre + '!',
       showConfirmButton: false,
       timer: 1500
     })
@@ -136,10 +141,10 @@ export class RegisterComponent implements OnInit {
     } else if (nacimiento === '') {
       this.sendError("La fecha de nacimiento no puede estar vacío");
       return false;
-    }  else if (sexo === '') {
+    } else if (sexo === '') {
       this.sendError("El sexo no puede estar vacío");
       return false;
-    }else if (correo === '') {
+    } else if (correo === '') {
       this.sendError("El correo no puede estar vacío");
       return false;
     } else if (pass === '') {
