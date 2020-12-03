@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import {Md5} from 'ts-md5/dist/md5';
 
 
 @Component({
@@ -23,8 +25,7 @@ export class LoginComponent implements OnInit {
 
   escribiendoPass = false;
 
-  constructor(private router: Router
-  ) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -51,167 +52,59 @@ export class LoginComponent implements OnInit {
   }
 
   async clickSiguiente() {
-    if (this.escribiendoPass) {
-      this.checkLogin();
-      return;
-    }
     //Validamos todos los campos del formulario
     if (!this.validar()) {
       return;
     }
 
-    this.loadingAnimation();
+    this.loadingAnimation();//Añadimos la animación de cargando
+
+    const md5 = new Md5();
     var correo = this.input.nativeElement.value.trim();
+    var pass = md5.appendStr(this.inputPassword.nativeElement.value.trim()).end();
 
-    var esto = this;
+    var registro =
+    {
+      "correo": correo,
+      "pass": pass
+    };
 
-    /*await this.authSvc.fireLogin(correo, '123123').then(function (result) {
-      console.log("CORRECTO:");
-      console.log(result);
-
-      esto.loginSuccess(result);
-    })
-      .catch(function (err) {
-        console.log("ERROR:");
-        console.log(err);
-
-        var error = "";
-        if (err.code === 'auth/invalid-email') {
-          error = "Ingresa un correo válido";
-        } else if (err.code === 'auth/user-not-found') {
-          error = "Este correo no está registrado";
-        } else if (err.code === 'auth/too-many-requests') {
-          error = "Demasiados intentos. Vuelva a intentarlo más tarde";
-        } else if (err.code === 'auth/wrong-password') {
-          esto.showPassword();
-          return;
+    //Comprobamos si el correo ya está registrado
+    this.http.post<any>('http://localhost:4201/user/login', registro).subscribe({
+      next: data => {
+        if (data.exist === '1') {//Si el API REST nos retorna verdadero, significa que si existe
+          Swal.fire({
+            icon: 'success',
+            title: '¡Bienvenido ' + data.nombre + '!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        } else {
+          //Registramos al usuario
+          this.sendError("El correo no existe o la contraseña es incorrecta.");
         }
-
-        Swal.fire({
-          title: '¡Oops!',
-          text: error,
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        })
-
-        esto.finishLoadingAnimation();
-      });*/
-
-  }
-
-  async showPassword() {
-    this.escribiendoPass = true;
-    this.finishLoadingAnimation();
-
-    this.divCorreo.nativeElement.style = "display: none";
-    this.divPassword.nativeElement.style = "display: block;";
-
-    this.divPaso1.nativeElement.style = "display: none;";
-    this.divPaso2.nativeElement.style = "display: block;";
-  }
-
-  async checkLogin() {
-    //Validamos todos los campos del formulario
-    if (!this.validar()) {
-      return;
-    }
-
-    this.loadingAnimation();
-    var correo = this.input.nativeElement.value.trim();
-    var pass = this.inputPassword.nativeElement.value.trim();
-
-    var esto = this;
-
-    /*await this.authSvc.fireLogin(correo, pass).then(function (result) {
-      console.log("CORRECTO:");
-      console.log(result);
-
-      esto.loginSuccess(result);
+        this.finishLoadingAnimation();
+      },
+      error: error => {
+        console.error('ERROR al comprobar.', error.message);
+      }
     })
-      .catch(function (err) {
-        console.log("ERROR:");
-        console.log(err);
-
-        var error = "";
-        if (err.code === 'auth/invalid-email') {
-          error = "Ingresa un correo válido";
-        } else if (err.code === 'auth/user-not-found') {
-          error = "Este correo no está registrado";
-        } else if (err.code === 'auth/too-many-requests') {
-          error = "Demasiados intentos. Vuelva a intentarlo más tarde";
-        } else if (err.code === 'auth/wrong-password') {
-          error = "Contraseña incorrecta";
-        }
-
-        Swal.fire({
-          title: '¡Oops!',
-          text: error,
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        })
-
-        esto.finishLoadingAnimation();
-      });*/
   }
 
   validar(): boolean {
-    if (this.escribiendoPass) {
-      var pass = this.inputPassword.nativeElement.value.trim();
+    var pass = this.inputPassword.nativeElement.value.trim();
+    var correo = this.input.nativeElement.value.trim();
 
-      if (pass === '') {
-        this.sendError("Por favor, ingresa tu contraseña");
-        return false;
-      }
-    } else {
-      var correo = this.input.nativeElement.value.trim();
-
-      if (correo === '') {
-        this.sendError("Por favor, ingresa tu correo");
-        return false;
-      }
+    if (correo === '') {
+      this.sendError("Por favor, ingresa tu correo");
+      return false;
+    } else if (pass === '') {
+      this.sendError("Por favor, ingresa tu contraseña");
+      return false;
     }
-
 
     return true;
   }
-
-  loginSuccess(result) {
-    var id = result.user.uid;
-
-
-    /*let s = this.db.list('usuarios/' + id).valueChanges();
-    let usuario = new Usuario();
-
-    s.forEach(item => {
-      console.log(item);
-
-      usuario.nombre = item[3].toString();
-      usuario.apellidos = item[0].toString();
-      usuario.correo = item[1].toString();
-      usuario.id = item[2].toString();
-
-      localStorage.setItem('usuario', JSON.stringify(usuario));
-
-      if (item.length < 5) {//Si no tiene un teléfono
-        this.router.navigate(['/verificar-telefono']);
-      } else {
-        //location.reload();
-        this.router.navigate(['/']);
-      }
-
-      Swal.fire({
-        icon: 'success',
-        title: '¡Bienvenido ' + usuario.nombre + '!',
-        showConfirmButton: false,
-        timer: 1500
-      })
-
-    });*/
-
-    window.location.reload();
-  }
-
-
 
   public sendError(msg: string) {
     Swal.fire({
