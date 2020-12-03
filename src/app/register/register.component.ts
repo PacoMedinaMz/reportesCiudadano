@@ -81,34 +81,36 @@ export class RegisterComponent implements OnInit {
       "pass": pass,
     };
 
-    this.http.post<any>('http://localhost:4201/registro', registro).subscribe({
+    //Comprobamos si el correo ya está registrado
+    this.http.post<any>('http://localhost:4201/user/exist', registro).subscribe({
       next: data => {
-        console.log(data);
-        if (data.status === 'error') {
-
+        if (data.exist === '1') {//Si el API REST nos retorna verdadero, significa que si existe
+          this.sendError("Este correo ya está registrado.");
+          this.finishLoadingAnimation();
         } else {
-          this.registerSuccess(nombre);
+          //Registramos al usuario
+          this.http.post<any>('http://localhost:4201/registro', registro).subscribe({
+            next: data => {
+              if (data.status === 'error') {
+                this.sendError("No se pudo registrar a causa de error del servidor.");
+              } else {
+                this.registerSuccess(nombre);
+              }
+              this.finishLoadingAnimation();
+            },
+            error: error => {
+              console.error('ERROR al registrar.', error.message);
+            }
+          })
         }
       },
       error: error => {
-        console.error('ERROR al registrar.', error.message);
+        console.error('ERROR al comprobar.', error.message);
       }
     })
-
-    this.finishLoadingAnimation();
   }
 
   registerSuccess(nombre: string) {
-    /*let usuario = new Usuario();
-    usuario.nombre = this.registerForm.value.nombre.trim();
-    usuario.correo = this.registerForm.value.correo.trim();
-    usuario.apellidos = this.registerForm.value.apellidos.trim();
-    usuario.id = id;
-    this.db.list('usuarios/' + id).set("nombre", usuario.nombre);
-    this.db.list('usuarios/' + id).set("apellidos", usuario.apellidos);
-    this.db.list('usuarios/' + id).set("correo", usuario.correo);
-    this.db.list('usuarios/' + id).set("id", usuario.id);*/
-
     Swal.fire({
       icon: 'success',
       title: '¡Bienvenido ' + nombre + '!',
