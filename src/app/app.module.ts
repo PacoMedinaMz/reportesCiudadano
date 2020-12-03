@@ -22,6 +22,8 @@ import { PgUnoComponent } from './pg-uno/pg-uno.component';
 import { PgDosComponent } from './pg-dos/pg-dos.component';
 import { PgTresComponent } from './pg-tres/pg-tres.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     RNormalComponent,
     PgUnoComponent,
     PgDosComponent,
-    PgTresComponent
+    PgTresComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
