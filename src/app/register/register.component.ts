@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-register',
@@ -62,13 +63,15 @@ export class RegisterComponent implements OnInit {
     //Hacemos la animación de "cargando"
     this.loadingAnimation();
 
+    const md5 = new Md5();
+
     var nombre = this.registerForm.value.nombre.trim();
     var apePat = this.registerForm.value.ape_pat.trim();
     var apeMat = this.registerForm.value.ape_mat.trim();
     var nacimiento = this.registerForm.value.nacimiento.trim();
     var sexo = this.registerForm.value.sexo.trim();
     var correo = this.registerForm.value.correo.trim();
-    var pass = this.registerForm.value.pass.trim();
+    var pass = md5.appendStr(this.registerForm.value.pass.trim()).end();
 
     var registro =
     {
