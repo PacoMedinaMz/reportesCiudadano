@@ -25,6 +25,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { HttpClientModule } from '@angular/common/http';
     PgDosComponent,
     PgTresComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginEmpresaComponent,
+    RegisterEmpresaComponent
   ],
   imports: [
     BrowserModule,

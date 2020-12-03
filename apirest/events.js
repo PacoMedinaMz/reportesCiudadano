@@ -64,6 +64,42 @@ function createRouter(db) {
         );
     });
 
+    //-----------------------------------------
+
+    router.post('/empresa/registro', function (req, res) {
+        db.query(
+            'INSERT INTO Institucion (Nombre, Mision, Tipo, Passwd, Correo) VALUES (?,?,?,?,?)',
+            [req.body.nombre, req.body.mision, req.body.tipo, req.body.pass, req.body.correo],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'registrado' });
+                }
+            }
+        );
+    });
+
+    router.post('/empresa/exist', function (req, res) {
+        db.query(
+            'SELECT Correo FROM Institucion WHERE Correo = ? LIMIT 1',
+            [req.body.correo],
+            (error, results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    if (results[0] != null) {
+                        res.status(200).json({exist: '1'});
+                    } else {
+                        res.status(200).json({exist: '0'});
+                    }
+                }
+            }
+        );
+    });
+
     return router;
 }
 
