@@ -100,6 +100,25 @@ function createRouter(db) {
         );
     });
 
+    router.post('/empresa/login', function (req, res) {
+        db.query(
+            'SELECT Nombre FROM Institucion WHERE Correo = ? AND Passwd = ? LIMIT 1',
+            [req.body.correo, req.body.pass],
+            (error, results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    if (results[0] != null) {
+                        res.status(200).json({exist: '1', nombre: results[0].Nombre});
+                    } else {
+                        res.status(200).json({exist: '0'});
+                    }
+                }
+            }
+        );
+    });
+
     return router;
 }
 
