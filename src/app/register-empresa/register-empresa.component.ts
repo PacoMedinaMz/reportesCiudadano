@@ -115,7 +115,7 @@ export class RegisterEmpresaComponent implements OnInit {
       timer: 1500
     })
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/loginEmpresa']);
   }
 
   validar(): boolean {

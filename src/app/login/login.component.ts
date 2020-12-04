@@ -41,11 +41,7 @@ export class LoginComponent implements OnInit {
   finishLoadingAnimation() {
     this.form.nativeElement.style = "background-color: transparent";
     this.loader.nativeElement.style = "display: none;";
-    if (this.escribiendoPass) {
-      this.btnSiguiente.nativeElement.innerHTML = "Iniciar sesión";
-    } else {
-      this.btnSiguiente.nativeElement.innerHTML = "Registrar";
-    }
+    this.btnSiguiente.nativeElement.innerHTML = "Iniciar sesión";
 
     this.btnSiguiente.nativeElement.disabled = false;
     //this.input.nativeElement.disabled = true;
@@ -79,6 +75,8 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
+
+          this.router.navigate(["/home"]);
         } else {
           //Registramos al usuario
           this.sendError("El correo no existe o la contraseña es incorrecta.");
