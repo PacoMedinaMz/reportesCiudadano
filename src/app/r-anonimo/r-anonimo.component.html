@@ -32,7 +32,7 @@
           <div class="col-md-9 mb-md-0 mb-5">
 
             <!-- FORM --> 
-            <form id="contact-form" name="contact-form" action="" method="POST">
+            <form [formGroup]="rAnonimoForm" id="contact-form" name="contact-form">
                
               <!-- DIV ROW -->
               <div class="row">
@@ -41,7 +41,7 @@
                   <div class="md-form mb-0">
                     <label for="calle" class=""><b>Calle</b></label>
                     <br>
-                    <input type="text" id="calle" name="calle" class="form-control" required>
+                    <input type="text" id="calle" name="calle" class="form-control" required formControlName="calle">
                   </div>
                 </div>
 
@@ -50,7 +50,7 @@
                   <div class="md-form mb-0">
                     <label for="frac"><b>Fraccionamiento</b></label>
                     <br>
-                    <input type="text" id="frac" name="frac" class="form-control" required>
+                    <input type="text" id="frac" name="frac" class="form-control" required formControlName="frac">
                   </div>
                 </div>
 
@@ -60,7 +60,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="md-form mb-0">
-                    <mdb-select [options]="optionsSelect" placeholder="Selecciona tu opción"></mdb-select>
+                    <mdb-select id="select" [options]="optionsSelect" placeholder="Selecciona tu opción" formControlName="action" >  
+                    </mdb-select>
                   </div>
                 </div>
               </div>
@@ -75,7 +76,7 @@
                     <label for="message"><b>Describe la situación</b></label>
                     <br>
                     <textarea type="text" id="message" name="message" rows="2"
-                      class="form-control md-textarea"></textarea>
+                      class="form-control md-textarea" formControlName="situacion"></textarea>
 
                   </div>
 
@@ -89,7 +90,7 @@
             <!-- BOTON DEL FORM -->
             <div class="text-center text-md-left">
               <a class="btn btn-warning" style="color: black;"
-                onclick="document.getElementById('contact-form').submit();">Enviar</a>
+              (click)="clickEnviar();">Enviar</a>
             </div>
             <!-- END BOTON DEL FORM -->
 

@@ -119,6 +119,53 @@ function createRouter(db) {
         );
     });
 
+    
+    router.post('/rUrgente/alta', function (req, res) {
+        db.query(
+            'INSERT INTO repUrgente (idRep, calle, frac, tel, action, situacion) VALUES (?,?,?,?,?,?)',
+            [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
+    router.post('/rNormal/alta', function (req, res) {
+        db.query(
+            'INSERT INTO repNormal (idRep, nombre, correo,calle, frac, tel, action, situacion) VALUES (?,?,?,?,?,?,?,?)',
+            [req.body.id ,req.body.nombre ,req.body.correo ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
+    router.post('/rAnonimo/alta', function (req, res) {
+        db.query(
+            'INSERT INTO repAnonimo (idRep, calle, frac, tel, action, situacion) VALUES (?,?,?,?,?,?)',
+            [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
+
     return router;
 }
 
