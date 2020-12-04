@@ -10,10 +10,6 @@ import { RNormalComponent} from '../app/r-normal/r-normal.component';
 import { PgUnoComponent } from '../app/pg-uno/pg-uno.component';
 import { PgDosComponent } from '../app/pg-dos/pg-dos.component';
 import { PgTresComponent } from '../app/pg-tres/pg-tres.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
-import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
 
 
 const routes: Routes = [
@@ -27,10 +23,6 @@ const routes: Routes = [
   {path: 'pUno', component:PgUnoComponent},
   {path: 'pDos', component:PgDosComponent},
   {path: 'pTres', component:PgTresComponent},
-  {path: 'login', component:LoginComponent},
-  {path: 'register', component:RegisterComponent},
-  {path: 'loginEmpresa', component:LoginEmpresaComponent},
-  {path: 'registerEmpresa', component:RegisterEmpresaComponent},
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 

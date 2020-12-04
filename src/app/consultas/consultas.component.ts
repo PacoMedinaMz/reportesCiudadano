@@ -78,7 +78,19 @@ export class ConsultasComponent implements OnInit {
   servicios = SERVICIOS;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  
+  optionsSelect: Array<any>;
+  
+  ngOnInit(){
+    
+    this.optionsSelect = [
+      { value: '1', label: 'Contacto a la Policía' },
+      { value: '2', label: 'Reporte de robo' },
+      { value: '3', label: 'Reporte de agresiones' },
+      { value: '4', label: 'Reporte de accidente' },
+      { value: '5', label: 'Reporte de incendio' },
+      { value: '6', label: 'Reporte por otros motivos' }
+      ];
 
+  }
 }
