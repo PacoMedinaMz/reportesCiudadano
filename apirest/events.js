@@ -166,6 +166,7 @@ function createRouter(db) {
         );
     });
 
+<<<<<<< HEAD
     router.post('/consulta/reporte', function (req, res) {
         db.query(
             'SELECT idRep, action, situacion FROM reportesGeneral WHERE idRep = ?',
@@ -177,11 +178,24 @@ function createRouter(db) {
                 } else{
                     res.status(200).json(results);
                     
+=======
+    router.post('/crud/puesto', function (req, res) {
+        db.query(
+            'INSERT INTO Puesto (Id_puesto, Puesto, Descrip ) VALUES (?,?,?)',
+            [req.body.id ,req.body.puesto, req.body.descrip],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+>>>>>>> 18852d2e816760f6db098d852dc1ff2a1bcc7460
                 }
             }
         );
     });
 
+<<<<<<< HEAD
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
             'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',
@@ -202,6 +216,8 @@ function createRouter(db) {
 
 
 
+=======
+>>>>>>> 18852d2e816760f6db098d852dc1ff2a1bcc7460
 
     return router;
 }
