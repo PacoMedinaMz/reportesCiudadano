@@ -165,6 +165,21 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/puesto', function (req, res) {
+        db.query(
+            'INSERT INTO Puesto (Id_puesto, Puesto, Descrip ) VALUES (?,?,?)',
+            [req.body.id ,req.body.puesto, req.body.descrip],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
 
     return router;
 }

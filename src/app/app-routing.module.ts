@@ -12,7 +12,7 @@ import { PgDosComponent } from '../app/pg-dos/pg-dos.component';
 import { PgTresComponent } from '../app/pg-tres/pg-tres.component';
 import { CrudComponent } from '../app/crud/crud.component';
 import { EstadoComponent } from '../app/estado/estado.component';
-import { PuestoComponent } from '../app/puesto/puesto.component';
+import { PuestoComponent  } from '../app/puesto/puesto.component';
 import { EmpleadoComponent } from '../app/empleado/empleado.component';
 
  
@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'pTres', component:PgTresComponent},
   {path: 'crud', component: CrudComponent},
   {path: 'estado', component: EstadoComponent},
-  {path: 'puesto', component: PuestoComponent},
+  {path: 'puesto', component: PuestoComponent },
   {path: 'empleado', component: EmpleadoComponent},
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
