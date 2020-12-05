@@ -27,6 +27,10 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { CrudComponent } from './crud/crud.component';
+import { PuestoComponent } from './puesto/puesto.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
+import { EstadoComponent } from './estado/estado.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { RegisterEmpresaComponent } from './register-empresa/register-empresa.co
     LoginComponent,
     RegisterComponent,
     LoginEmpresaComponent,
-    RegisterEmpresaComponent
+    RegisterEmpresaComponent,
+    CrudComponent,
+    PuestoComponent,
+    EmpleadoComponent,
+    EstadoComponent
   ],
   imports: [
     BrowserModule,
