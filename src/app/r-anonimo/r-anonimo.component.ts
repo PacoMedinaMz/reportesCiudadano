@@ -41,13 +41,15 @@ export class RAnonimoComponent implements OnInit {
 
   
   async clickEnviar() {
-  
+
     var id = this.getRandomInt(1,1000);
     var calle = this.rAnonimoForm.value.calle.trim();
     var frac = this.rAnonimoForm.value.frac.trim();
     var tel = this.rAnonimoForm.value.tel.trim();
     var action = this.rAnonimoForm.value.action.trim();
     var situacion = this.rAnonimoForm.value.situacion.trim();
+
+    
 
     var rAnonimo =
     {
@@ -86,12 +88,36 @@ export class RAnonimoComponent implements OnInit {
   registerSuccess(id) {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu reporte ha sido enviado - Id:'+id+'!',
-      showConfirmButton: false,
-      timer: 1500
+      title: '¡Tu reporte ha sido enviado - Código:'+id+'!',
+      showConfirmButton: true,
+      timer: 4000
     })
+    
 
   }
+
+  validar(): boolean {
+    var calle = this.rAnonimoForm.value.calle.trim();
+    var frac = this.rAnonimoForm.value.frac.trim();
+    var action = this.rAnonimoForm.value.action.trim();
+    var situacion = this.rAnonimoForm.value.situacion.trim();
+
+    if (calle === '') {
+      this.sendError("Por favor, ingresa la Calle");
+      return false;
+    } else if (frac === '') {
+      this.sendError("Por favor, ingresa el Fraccionamiento");
+      return false;
+    }else if (action === '') {
+      this.sendError("Por favor, ingresa el Servicio requerido");
+      return false;
+    }else if (situacion === '') {
+      this.sendError("Por favor, ingresa la situación");
+      return false;
+
+    return true;
+  }
+}
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;

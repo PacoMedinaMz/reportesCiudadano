@@ -1,3 +1,4 @@
+const { json } = require('express');
 const express = require('express');
 
 function createRouter(db) {
@@ -122,7 +123,7 @@ function createRouter(db) {
     
     router.post('/rUrgente/alta', function (req, res) {
         db.query(
-            'INSERT INTO repUrgente (idRep, calle, frac, tel, action, situacion) VALUES (?,?,?,?,?,?)',
+            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion, tipo) VALUES (?,?,?,?,?,?,"urgente")',
             [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
@@ -137,7 +138,7 @@ function createRouter(db) {
 
     router.post('/rNormal/alta', function (req, res) {
         db.query(
-            'INSERT INTO repNormal (idRep, nombre, correo,calle, frac, tel, action, situacion) VALUES (?,?,?,?,?,?,?,?)',
+            'INSERT INTO reportesGeneral (idRep, nombre, correo,calle, frac, tel, action, situacion,tipo) VALUES (?,?,?,?,?,?,?,?,"normal")',
             [req.body.id ,req.body.nombre ,req.body.correo ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
@@ -152,7 +153,7 @@ function createRouter(db) {
 
     router.post('/rAnonimo/alta', function (req, res) {
         db.query(
-            'INSERT INTO repAnonimo (idRep, calle, frac, tel, action, situacion) VALUES (?,?,?,?,?,?)',
+            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion,tipo) VALUES (?,?,?,?,?,?,"anonimo")',
             [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
@@ -164,6 +165,42 @@ function createRouter(db) {
             }
         );
     });
+
+    router.post('/consulta/reporte', function (req, res) {
+        db.query(
+            'SELECT idRep, action, situacion FROM reportesGeneral WHERE idRep = ?',
+            [req.body.buscar],
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results);
+                    
+                }
+            }
+        );
+    });
+
+    router.post('/consulta/reporteG', function (req, res) {
+        db.query(
+            'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',
+            [req.body.buscar],
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results);
+                    
+                }
+            }
+        );
+    });
+
+    
+
+
 
 
     return router;
