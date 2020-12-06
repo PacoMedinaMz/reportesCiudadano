@@ -212,6 +212,21 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/atiende', function (req, res) {
+        db.query(
+            'INSERT INTO Atiende (Id_empleado, Id_reporte ) VALUES (?,?)',
+            [req.body.idE, req.body.idR],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
             'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',

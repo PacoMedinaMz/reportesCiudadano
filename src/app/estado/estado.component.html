@@ -1,1 +1,103 @@
-<p>estado works!</p>
+<section class="mb-4 text-center">
+
+    <div class="card text-center" style="border: 1px solid yellow; justify-content: center; width: 50%; margin: 0 auto">
+      <!-- TITULO -->
+      <h2 class="h1-responsive font-weight-bold text-center my-4">Atención a reportes</h2>
+  
+      <!-- EXPLICACION -->
+      <p class="text-center w-responsive mx-auto mb-5">
+        Se asignan empleados a atender los reportes de los ciudadanos.
+      </p>
+  
+      <!-- FORM DE URGENCIAS -->
+  
+      <mdb-card>
+        <!-- IMAGEN -->
+        <div style="margin: 10px; ">
+          <a>
+            <div class="mask"></div>
+          </a>
+          <br>
+          <p><b>Asignar personal a cierto reporte.</b></p>
+        </div>
+        <!-- END IMAGEN -->
+  
+  
+        <!-- AQUI INICIA EL CONTENIDO DEL FORM -->
+        <mdb-card-body>
+          <div class="row">
+  
+            <div class="col-md-9 mb-md-0 mb-5">
+  
+              <!-- FORM -->
+              <form [formGroup]="atiendeForm" id="contact-form" name="contact-form">
+  
+                <!-- DIV ROW -->
+  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <label for="idReporte"><b>Identificador del reporte</b></label>
+                      <br>
+                      <input type="number" id="idReporte" name="idReporte" class="form-control" required formControlName="idReporte">
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <label for="idPuesto"><b>Identificador del empleado</b></label>
+                      <br>
+                      <input type="number" id="idEmpleado" name="idEmpleado" class="form-control" required formControlName="idEmpleado">
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <br>
+              </form>
+              <!-- END-FORM -->
+  
+              <!-- BOTON DEL FORM -->
+              <div class="text-center text-md-left">
+                <a class="btn btn-warning" style="color: black;" (click)="clickEnviar();">Enviar</a>
+              </div>
+              <!-- END BOTON DEL FORM -->
+  
+              <div class="status"></div>
+            </div>
+  
+  
+            <!-- ICONOS E INFO EXTRA -->
+  
+            <div class="col-md-3 text-center">
+              <br>
+              <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                  <p>Aguascalientes, Ags</p>
+                </li>
+  
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                  <p>help_ciudadano@gmail.com</p>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- ICONOS E INFO EXTRA -->
+  
+          </div>
+  
+          <!-- END DIV ROW -->
+  
+        </mdb-card-body>
+        <!-- END-CONTENIDO -->
+      </mdb-card>
+  
+    </div>
+    <div style="justify-content:center">
+      <button type="button" class="btn btn-warning btn-rounded mx-0" routerLink="/crud"
+        style="margin: 15px;">Regresar</button>
+    </div>
+    <br>
+  </section>  

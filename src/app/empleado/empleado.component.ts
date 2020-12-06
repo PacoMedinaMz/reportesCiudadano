@@ -101,7 +101,7 @@ export class EmpleadoComponent implements OnInit {
   registerSuccess(id) {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu reporte ha sido enviado - Id:'+id+'!',
+      title: '¡El empleado se dio de alta - Id:'+id+'!',
       showConfirmButton: false,
       timer: 1500
     })
