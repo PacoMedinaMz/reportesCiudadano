@@ -197,6 +197,20 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/empleado', function (req, res) {
+        db.query(
+            'INSERT INTO Empleado (Id_empleado, Nombre, Ape_paterno, Ape_materna, Sexo, Fecha_nacimiento, Activo, Id_institucion ) VALUES (?,?,?,?,?,?,?,?)',
+            [req.body.id ,req.body.nombre, req.body.apePat, req.body.apeMat ,req.body.sexo, req.body.fecha, req.body.activo, req.body.id_institucion],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
 
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
