@@ -14,6 +14,8 @@ import { CrudComponent } from '../app/crud/crud.component';
 import { EstadoComponent } from '../app/estado/estado.component';
 import { PuestoComponent  } from '../app/puesto/puesto.component';
 import { EmpleadoComponent } from '../app/empleado/empleado.component';
+import { RealizaComponent } from '../app/realiza/realiza.component';
+import {FinalComponent} from '../app/final/final.component';
 
  
 
@@ -32,6 +34,8 @@ const routes: Routes = [
   {path: 'estado', component: EstadoComponent},
   {path: 'puesto', component: PuestoComponent },
   {path: 'empleado', component: EmpleadoComponent},
+  {path: 'realiza', component: RealizaComponent},
+  {path: 'final', component: FinalComponent}, 
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 

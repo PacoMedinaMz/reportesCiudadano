@@ -227,6 +227,36 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/realiza', function (req, res) {
+        db.query(
+            'INSERT INTO Encargado_de (Id_puesto, Id_empleado ) VALUES (?,?)',
+            [req.body.idP, req.body.idE],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
+    router.post('/crud/final', function (req, res) {
+        db.query(
+            'INSERT INTO Final (Id_final, Descrip, Fecha, Id_reporte ) VALUES (?,?,?,?)',
+            [req.body.id, req.body.des, req.body.fecha, req.body.idR],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
             'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',
