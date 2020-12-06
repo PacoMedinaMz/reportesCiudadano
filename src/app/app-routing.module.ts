@@ -17,6 +17,10 @@ import { EmpleadoComponent } from '../app/empleado/empleado.component';
 import { RealizaComponent } from '../app/realiza/realiza.component';
 import {FinalComponent} from '../app/final/final.component';
 import {ServicioComponent} from '../app/servicio/servicio.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
 
  
 
@@ -38,6 +42,10 @@ const routes: Routes = [
   {path: 'realiza', component: RealizaComponent},
   {path: 'final', component: FinalComponent}, 
   {path: 'servicios', component: ServicioComponent},
+  {path: 'login', component:LoginComponent},
+  {path: 'register', component:RegisterComponent},
+  {path: 'loginEmpresa', component:LoginEmpresaComponent},
+  {path: 'registerEmpresa', component:RegisterEmpresaComponent},
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 
