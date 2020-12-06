@@ -272,6 +272,21 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/encargado', function (req, res) {
+        db.query(
+            'INSERT INTO Encargado (Id_servicio, Id_institucion, Des, Tipo ) VALUES (?,?,?,?)',
+            [req.body.idS, req.body.idI, req.body.des, req.body.tipo],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
             'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',
