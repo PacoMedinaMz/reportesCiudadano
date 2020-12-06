@@ -26,6 +26,9 @@ export class LoginEmpresaComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
+    localStorage.removeItem("id_empresa");
+    localStorage.removeItem("id_usuario");
+    localStorage.removeItem("nombre");
   }
 
   loadingAnimation() {
