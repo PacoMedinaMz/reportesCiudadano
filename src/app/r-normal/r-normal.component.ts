@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class RNormalComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
- 
+
   optionsSelect: Array<any>;
 
   rNormalForm = new FormGroup({
@@ -26,10 +26,10 @@ export class RNormalComponent implements OnInit {
     situacion: new FormControl('')
   });
 
-  ngOnInit(){
-    
+  ngOnInit() {
+
     this.optionsSelect = [
-      { value: 'Contactar a la Policía', label: 'Contactar a la Policía'},
+      { value: 'Contactar a la Policía', label: 'Contactar a la Policía' },
       { value: 'Reportar un robo', label: 'Reportar un robo' },
       { value: 'Reportar agresiones', label: 'Reportar agresiones' },
       { value: 'Reportar un accidente', label: 'Reportar un accidente' },
@@ -40,42 +40,45 @@ export class RNormalComponent implements OnInit {
 
   }
   async clickEnviar() {
-  
-    var id = this.getRandomInt(1,1000);
-    var nombre = this.rNormalForm.value.nombre.trim();
-    var correo = this.rNormalForm.value.correo.trim();
-    var calle = this.rNormalForm.value.calle.trim();
-    var frac = this.rNormalForm.value.frac.trim();
-    var tel = this.rNormalForm.value.tel.trim();
-    var action = this.rNormalForm.value.action.trim();
-    var situacion = this.rNormalForm.value.situacion.trim();
+   
+
+      var id = this.getRandomInt(1, 1000);
+      var nombre = this.rNormalForm.value.nombre.trim();
+      var correo = this.rNormalForm.value.correo.trim();
+      var calle = this.rNormalForm.value.calle.trim();
+      var frac = this.rNormalForm.value.frac.trim();
+      var tel = this.rNormalForm.value.tel.trim();
+      var action = this.rNormalForm.value.action.trim();
+      var situacion = this.rNormalForm.value.situacion.trim();
 
 
-    var rNormal =
-    {
-      "id": id,
-      "nombre": nombre,
-      "correo": correo,
-      "calle": calle,
-      "frac": frac,
-      "tel": tel,
-      "action": action,
-      "situacion": situacion
-    };
+      var rNormal =
+      {
+        "id": id,
+        "nombre": nombre,
+        "correo": correo,
+        "calle": calle,
+        "frac": frac,
+        "tel": tel,
+        "action": action,
+        "situacion": situacion
+      };
 
-    this.http.post<any>('http://localhost:4201/rNormal/alta', rNormal).subscribe({
-      next: data => {
-        if (data.status === 'error') {
-          this.sendError("No se pudo generar reporte a causa de error del servidor.");
-        } else {
-          this.registerSuccess(id);
+      this.http.post<any>('http://localhost:4201/rNormal/alta', rNormal).subscribe({
+        next: data => {
+          if (data.status === 'error') {
+            this.sendError("No se pudo generar reporte a causa de error del servidor.");
+          } else {
+            this.registerSuccess(id);
+          }
+
+        },
+        error: error => {
+          console.error('ERROR al generar reporte', error.message);
         }
+      })
 
-      },
-      error: error => {
-        console.error('ERROR al generar reporte', error.message);
-      }
-    })
+    
   }
 
   public sendError(msg: string) {
@@ -90,8 +93,8 @@ export class RNormalComponent implements OnInit {
   registerSuccess(id) {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu reporte ha sido enviado - Id:'+id+'!',
-      showConfirmButton: false,
+      title: '¡Tu reporte ha sido enviado - Código:' + id + '!',
+      showConfirmButton: true,
       timer: 1500
     })
 
@@ -101,7 +104,40 @@ export class RNormalComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  
 
+  validar(): boolean {
+    var nombre = this.rNormalForm.value.nombre.trim();
+    var correo = this.rNormalForm.value.correo.trim();
+    var calle = this.rNormalForm.value.calle.trim();
+    var frac = this.rNormalForm.value.frac.trim();
+    var tel = this.rNormalForm.value.tel.trim();
+    var action = this.rNormalForm.value.action.trim();
+    var situacion = this.rNormalForm.value.situacion.trim();
+
+    if (calle === '') {
+      this.sendError("Por favor, ingresa la Calle");
+      return false;
+    } else if (nombre === '') {
+      this.sendError("Por favor, ingresa tu Nombre");
+      return false;
+    } else if (correo === '') {
+      this.sendError("Por favor, ingresa tu Correo");
+      return false;
+    } else if (tel === '') {
+      this.sendError("Por favor, ingresa tu Teléfono");
+      return false;
+    } else if (frac === '') {
+      this.sendError("Por favor, ingresa el Fraccionamiento");
+      return false;
+    } else if (action === '') {
+      this.sendError("Por favor, ingresa el Servicio requerido");
+      return false;
+    } else if (situacion === '') {
+      this.sendError("Por favor, ingresa la situación");
+      return false;
+
+      return true;
+    }
+  }
 
 }

@@ -1,1 +1,139 @@
-<p>empleado works!</p>
+<section class="mb-4 text-center">
+
+  <div class="card text-center" style="border: 1px solid yellow; justify-content: center; width: 50%; margin: 0 auto">
+    <!-- TITULO -->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Empleados</h2>
+
+    <!-- EXPLICACION -->
+    <p class="text-center w-responsive mx-auto mb-5">
+      Para dar de alta los empleados encargados de atender los reportes.
+    </p>
+
+    <!-- FORM DE URGENCIAS -->
+
+    <mdb-card>
+      <!-- IMAGEN -->
+      <div style="margin: 10px; ">
+        <a>
+          <div class="mask"></div>
+        </a>
+        <br>
+        <p><b>Da de alta un nuevo empleado de tu institución.</b></p>
+      </div>
+      <!-- END IMAGEN -->
+
+
+      <!-- AQUI INICIA EL CONTENIDO DEL FORM -->
+      <mdb-card-body>
+        <div class="row">
+
+          <div class="col-md-9 mb-md-0 mb-5">
+
+            <!-- FORM -->
+            <form [formGroup]="empleadoForm" id="contact-form" name="contact-form">
+
+              <!-- DIV ROW -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <label for="nombre" class=""><b>Nombre</b></label>
+                    <br>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required formControlName="nombre">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="md-form">
+                    <label for="apePat"><b>Apellido paterno</b></label>
+                    <br>
+                    <input type="text" id="apePat" name="apePat" class="form-control" required formControlName="apePat">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="md-form">
+                    <label for="apeMat"><b>Apellido materno</b></label>
+                    <br>
+                    <input type="text" id="apeMat" name="apeMat" class="form-control" required formControlName="apeMat">
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <label for="sex"><b>Sexo</b></label>
+                    <mdb-select id="selectSexo" [options]="optionsSelectSexo" placeholder="Selecciona tu opción" formControlName="sexo" >  
+                    </mdb-select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="md-form">
+                    <label for="fecha"><b>Fecha de nacimiento</b></label>
+                    <br>
+                    <input type="date" id="fecha" name="fecha" class="form-control" required formControlName="fecha">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <label for="act"><b>Activo</b></label>
+                    <mdb-select id="selectSexo" [options]="optionsSelectAct" placeholder="Selecciona tu opción" formControlName="activo" >  
+                    </mdb-select>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <br>
+            </form>
+            <!-- END-FORM -->
+
+            <!-- BOTON DEL FORM -->
+            <div class="text-center text-md-left">
+              <a class="btn btn-warning" style="color: black;" (click)="clickEnviar();">Enviar</a>
+            </div>
+            <!-- END BOTON DEL FORM -->
+
+            <div class="status"></div>
+          </div>
+
+
+          <!-- ICONOS E INFO EXTRA -->
+
+          <div class="col-md-3 text-center">
+            <br>
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                <p>Aguascalientes, Ags</p>
+              </li>
+
+              <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                <p>help_ciudadano@gmail.com</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ICONOS E INFO EXTRA -->
+
+        </div>
+
+        <!-- END DIV ROW -->
+
+      </mdb-card-body>
+      <!-- END-CONTENIDO -->
+    </mdb-card>
+
+  </div>
+  <div style="justify-content:center">
+    <button type="button" class="btn btn-warning btn-rounded mx-0" routerLink="/crud"
+      style="margin: 15px;">Regresar</button>
+  </div>
+  <br>
+</section>

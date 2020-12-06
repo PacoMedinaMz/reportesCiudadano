@@ -4,18 +4,19 @@ import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-puesto',
-  templateUrl: './puesto.component.html',
-  styleUrls: ['./puesto.component.scss']
+  selector: 'app-final',
+  templateUrl: './final.component.html',
+  styleUrls: ['./final.component.scss']
 })
-export class PuestoComponent implements OnInit {
+export class FinalComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  puestoForm = new FormGroup({
+  finalForm = new FormGroup({
     id: new FormControl(''),
-    puesto: new FormControl(''),
-    descrip: new FormControl('')
+    des: new FormControl(''),
+    fecha: new FormControl(''),
+    idR: new FormControl('')
   });
 
   ngOnInit(): void {
@@ -24,23 +25,25 @@ export class PuestoComponent implements OnInit {
   async clickEnviar() {
   
     var id = this.getRandomInt(1,1000);
-    var puesto = this.puestoForm.value.puesto.trim();
-    var descrip = this.puestoForm.value.descrip.trim();
+    var des = this.finalForm.value.des;
+    var fecha = this.finalForm.value.fecha;
+    var idR = this.finalForm.value.idR;
+
 
     var jPuesto =
     {
       "id": id,
-      "puesto": puesto,
-      "descrip": descrip
-
+      "des": des,
+      "fecha": fecha,
+      "idR": idR
     };
 
-    this.http.post<any>('http://localhost:4201/crud/puesto', jPuesto).subscribe({
+    this.http.post<any>('http://localhost:4201/crud/final', jPuesto).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");
         } else {
-          this.registerSuccess(id);
+          this.registerSuccess();
         }
 
       },
@@ -48,10 +51,6 @@ export class PuestoComponent implements OnInit {
         console.error('ERROR al generar reporte', error.message);
       }
     })
-  }
-
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   public sendError(msg: string) {
@@ -63,13 +62,17 @@ export class PuestoComponent implements OnInit {
     })
   }
 
-  registerSuccess(id) {
+  registerSuccess() {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu nuevo puesto tiene el - Id:'+id+'!',
+      title: '¡Se registro el reporte final!',
       showConfirmButton: false,
       timer: 1500
     })
-
   }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
 }

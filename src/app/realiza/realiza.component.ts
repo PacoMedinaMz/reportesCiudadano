@@ -4,51 +4,46 @@ import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-estado',
-  templateUrl: './estado.component.html',
-  styleUrls: ['./estado.component.scss']
+  selector: 'app-realiza',
+  templateUrl: './realiza.component.html',
+  styleUrls: ['./realiza.component.scss']
 })
-export class EstadoComponent implements OnInit {
+export class RealizaComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
+
+  puestoForm = new FormGroup({
+    idP: new FormControl(''),
+    idE: new FormControl('')
+  });
 
   ngOnInit(): void {
   }
 
-  atiendeForm = new FormGroup({
-    idReporte: new FormControl(''),
-    idEmpleado: new FormControl('')
-  });
-
   async clickEnviar() {
   
-    var idR = this.atiendeForm.value.idReporte;
-    var idE = this.atiendeForm.value.idEmpleado;
-    
+    var idE = this.puestoForm.value.idE;
+    var idP = this.puestoForm.value.idP;
 
-    var jEmpleado =
+    var jPuesto =
     {
-      "idR": idR,
-      "idE": idE
+      "idE": idE,
+      "idP": idP
     };
 
-    this.http.post<any>('http://localhost:4201/crud/atiende', jEmpleado).subscribe({
+    this.http.post<any>('http://localhost:4201/crud/realiza', jPuesto).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");
         } else {
-          this.registerSuccess("Asignación exitosa");
+          this.registerSuccess();
         }
 
       },
       error: error => {
-        console.error('ERROR al realizar asignación', error.message);
+        console.error('ERROR al generar reporte', error.message);
       }
     })
-  }
-
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   public sendError(msg: string) {
@@ -60,13 +55,12 @@ export class EstadoComponent implements OnInit {
     })
   }
 
-  registerSuccess(id) {
+  registerSuccess() {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu asignación ha sido enviado ',
+      title: '¡Asignación completada!',
       showConfirmButton: false,
       timer: 1500
     })
   }
-
 }

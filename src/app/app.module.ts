@@ -31,6 +31,10 @@ import { CrudComponent } from './crud/crud.component';
 import { PuestoComponent } from './puesto/puesto.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { EstadoComponent } from './estado/estado.component';
+import { FinalComponent } from './final/final.component';
+import { RealizaComponent } from './realiza/realiza.component';
+import { EncargadoComponent } from './encargado/encargado.component';
+import { ServicioComponent } from './servicio/servicio.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,11 @@ import { EstadoComponent } from './estado/estado.component';
     CrudComponent,
     PuestoComponent,
     EmpleadoComponent,
-    EstadoComponent
+    EstadoComponent,
+    FinalComponent,
+    RealizaComponent,
+    EncargadoComponent,
+    ServicioComponent
   ],
   imports: [
     BrowserModule,

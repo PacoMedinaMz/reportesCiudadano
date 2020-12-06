@@ -2,11 +2,11 @@
 
     <div class="card text-center" style="border: 1px solid yellow; justify-content: center; width: 50%; margin: 0 auto">
       <!-- TITULO -->
-      <h2 class="h1-responsive font-weight-bold text-center my-4">Atención a reportes</h2>
+      <h2 class="h1-responsive font-weight-bold text-center my-4">Servicios</h2>
   
       <!-- EXPLICACION -->
       <p class="text-center w-responsive mx-auto mb-5">
-        Se asignan empleados a atender los reportes de los ciudadanos.
+        Para dar de alta servicios 
       </p>
   
       <!-- FORM DE URGENCIAS -->
@@ -17,8 +17,8 @@
           <a>
             <div class="mask"></div>
           </a>
-          <br>
-          <p><b>Asignar personal a cierto reporte.</b></p>
+            <br>
+          <p><b>Dar de alta un nuevo servicio.</b></p>
         </div>
         <!-- END IMAGEN -->
   
@@ -29,39 +29,39 @@
   
             <div class="col-md-9 mb-md-0 mb-5">
   
-              <!-- FORM -->
-              <form [formGroup]="atiendeForm" id="contact-form" name="contact-form">
-  
+              <!-- FORM --> 
+              <form [formGroup]="puestoForm" id="contact-form" name="contact-form">
+                 
                 <!-- DIV ROW -->
-  
                 <div class="row">
-                  <div class="col-md-12">
-                    <div class="md-form">
-                      <label for="idReporte"><b>Identificador del reporte</b></label>
+  
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <label for="nom" class=""><b>Servicio</b></label>
                       <br>
-                      <input type="number" id="idReporte" name="idReporte" class="form-control" required formControlName="idReporte">
+                      <input type="text" id="nom" name="nom" class="form-control" required formControlName="nom">
                     </div>
                   </div>
                 </div>
   
                 <div class="row">
                   <div class="col-md-12">
+  
                     <div class="md-form">
-                      <label for="idPuesto"><b>Identificador del empleado</b></label>
+                      <label for="message"><b>Describe el servicio</b></label>
                       <br>
-                      <input type="number" id="idEmpleado" name="idEmpleado" class="form-control" required formControlName="idEmpleado">
+                      <textarea type="text" id="puesto" name="puesto" rows="2"
+                        class="form-control md-textarea" formControlName="des"></textarea>
                     </div>
                   </div>
                 </div>
-                <br>
-                <br>
-                <br>
               </form>
               <!-- END-FORM -->
   
               <!-- BOTON DEL FORM -->
               <div class="text-center text-md-left">
-                <a class="btn btn-warning" style="color: black;" (click)="clickEnviar();">Enviar</a>
+                <a class="btn btn-warning" style="color: black;"
+                (click)="clickEnviar();">Enviar</a>
               </div>
               <!-- END BOTON DEL FORM -->
   
@@ -96,8 +96,7 @@
   
     </div>
     <div style="justify-content:center">
-      <button type="button" class="btn btn-warning btn-rounded mx-0" routerLink="/crud"
-        style="margin: 15px;">Regresar</button>
+      <button type="button" class="btn btn-warning btn-rounded mx-0" routerLink="/crud" style="margin: 15px;">Regresar</button>
     </div>
     <br>
-  </section>  
+  </section>

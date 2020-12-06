@@ -1,12 +1,43 @@
 <!-- APARTADO DE BUSCADOR DE REPORTES -->
 
-<div class="container my-5" style="justify-content: center; text-align: center;">
-  <h5><b>Busca cualquier reporte:</b></h5>
+<div class="container my-5">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h4><b>Reportes</b></h4>
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>Mostrar todos los reportes</p>
+      </mat-panel-description>
+      <hr>
+    </mat-expansion-panel-header>
+    <div class="col" style="justify-content: center;">
+     <p>Presiona Buscar para mostrar todos los reportes disponibles</p>
+      <button class="btn btn-danger" (click)="clickBuscarTodo()">Buscar</button>
+    </div>
+  
 
-  <form class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2">
-    <i class="fas fa-search" aria-hidden="true"></i>
-    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-  </form>
+    <div id="tabla2" style="display: none;" class="container my-5">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"># Reporte</th>
+            <th scope="col">Servicio Solicitado</th>
+            <th scope="col">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rep2 of reportes2">
+            <th scope="row">{{rep2.idRep}}</th>
+            <td>{{rep2.action}}</td>
+            <td>{{rep2.situacion}}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+    </div>
+  </mat-expansion-panel>
+
 </div>
 
 <div>
@@ -23,6 +54,7 @@
         <hr>
       </mat-expansion-panel-header>
 
+    
       <!-- FORM DE BUSQUEDA PERSONALIZADA -->
       <form action="">
         <div class="form-row">
@@ -31,8 +63,8 @@
             <input id="sit" type="text" class="form-control" placeholder="Situación">
           </div>
           <div class="col">
-            <label for="idserv"><b>Código de Reporte</b></label>
-            <input id="idserv" type="text" class="form-control" placeholder="Zip">
+            <label for="idserv"><b>*Código de Reporte (Obligatorio)</b></label>
+            <input id="idserv" type="text" class="form-control" placeholder="Código" #busqueda>
           </div>
         </div>
         <br>
@@ -62,12 +94,31 @@
         <div class="form-row">
           <div class="col-11"></div>
           <div class="col">
-            <button class="btn btn-danger">Buscar</button>
+            <button class="btn btn-danger" (click)="clickBuscar()">Buscar</button>
           </div>
         </div>
         <br>
       </form>
 
+      <div id="tabla" style="display: none;" class="container my-5">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col"># Reporte</th>
+              <th scope="col">Servicio Solicitado</th>
+              <th scope="col">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rep of reportes">
+              <th scope="row">{{rep.idRep}}</th>
+              <td>{{rep.action}}</td>
+              <td>{{rep.situacion}}</td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
     </mat-expansion-panel>
 
   </div>

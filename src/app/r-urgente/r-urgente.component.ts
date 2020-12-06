@@ -87,8 +87,8 @@ export class RUrgenteComponent implements OnInit {
   registerSuccess(id) {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu reporte ha sido enviado - Id:'+id+'!',
-      showConfirmButton: false,
+      title: '¡Tu reporte ha sido enviado - Código:'+id+'!',
+      showConfirmButton: true,
       timer: 1500
     })
 
