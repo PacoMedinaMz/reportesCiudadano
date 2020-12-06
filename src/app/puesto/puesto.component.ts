@@ -66,7 +66,7 @@ export class PuestoComponent implements OnInit {
   registerSuccess(id) {
     Swal.fire({
       icon: 'success',
-      title: '¡Tu reporte ha sido enviado - Id:'+id+'!',
+      title: '¡Tu nuevo puesto tiene el - Id:'+id+'!',
       showConfirmButton: false,
       timer: 1500
     })
