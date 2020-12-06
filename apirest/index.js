@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
   host     : 'm.pacomedina.mx',
   user     : 'paco',
   password : 'MySql2020+',
-  database : 'ReportesPrueba'
+  database : 'Reportes'
 });
 
 connection.connect();
