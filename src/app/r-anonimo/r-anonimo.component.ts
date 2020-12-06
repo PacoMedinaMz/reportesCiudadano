@@ -32,12 +32,12 @@ export class RAnonimoComponent implements OnInit {
 
     
     this.optionsSelect = [
-      { value: '1', label: 'Contactar a la Policía' },
-      { value: '2', label: 'Reportar un robo' },
-      { value: '3', label: 'Reportar agresiones' },
-      { value: '4', label: 'Reportar un accidente' },
-      { value: '5', label: 'Reportar un incendio' },
-      { value: '6', label: 'Reporte por otros motivos' }
+      { value: 'Emergencias - Atención Estatal', label: 'Contactar a la Policía' },
+      { value: 'Policía Municipal', label: 'Reportar un robo' },
+      { value: 'Emergencias - Atención Estatal', label: 'Reportar agresiones' },
+      { value: 'Cruz Roja', label: 'Reportar un accidente' },
+      { value: 'Bomberos', label: 'Reportar un incendio' },
+      { value: 'Reporte por otros motivos', label: 'Reporte por otros motivos' }
       ];
 
   }
@@ -46,6 +46,7 @@ export class RAnonimoComponent implements OnInit {
   async clickEnviar() {
 
     var id = this.getRandomInt(1,1000);
+    var id_usuario = 6;
     var calle = this.rAnonimoForm.value.calle.trim();
     var frac = this.rAnonimoForm.value.frac.trim();
     var tel = this.rAnonimoForm.value.tel.trim();
@@ -57,6 +58,7 @@ export class RAnonimoComponent implements OnInit {
     var rAnonimo =
     {
       "id": id,
+      "id_usuario": id_usuario,
       "calle": calle,
       "frac": frac,
       "tel": tel,

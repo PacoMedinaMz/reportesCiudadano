@@ -100,16 +100,15 @@ export class ConsultasComponent implements OnInit {
 
 
   ngOnInit() {
-
+    
     this.optionsSelect = [
-      { value: '1', label: 'Contacto a la Policía' },
-      { value: '2', label: 'Reporte de robo' },
-      { value: '3', label: 'Reporte de agresiones' },
-      { value: '4', label: 'Reporte de accidente' },
-      { value: '5', label: 'Reporte de incendio' },
-      { value: '6', label: 'Reporte por otros motivos' }
-    ];
-
+      { value: 'Emergencias - Atención Estatal', label: 'Contactar a la Policía' },
+      { value: 'Policía Municipal', label: 'Reportar un robo' },
+      { value: 'Emergencias - Atención Estatal', label: 'Reportar agresiones' },
+      { value: 'Cruz Roja', label: 'Reportar un accidente' },
+      { value: 'Bomberos', label: 'Reportar un incendio' },
+      { value: 'Reporte por otros motivos', label: 'Reporte por otros motivos' }
+      ];
 
     //NUMERO DE REPORTES 
     this.http.get<any>('http://localhost:4201/consulta/numReportes').subscribe(data => {

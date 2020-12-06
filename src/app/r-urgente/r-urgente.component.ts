@@ -30,19 +30,21 @@ export class RUrgenteComponent implements OnInit {
   ngOnInit() {
    
     this.optionsSelect = [
-      { value: 'Contactar a la Policía', label: 'Contactar a la Policía'},
-      { value: 'Reportar un robo', label: 'Reportar un robo' },
-      { value: 'Reportar agresiones', label: 'Reportar agresiones' },
-      { value: 'Reportar un accidente', label: 'Reportar un accidente' },
-      { value: 'Reportar un incendio', label: 'Reportar un incendio' },
+      { value: 'Emergencias - Atención Estatal', label: 'Contactar a la Policía' },
+      { value: 'Policía Municipal', label: 'Reportar un robo' },
+      { value: 'Emergencias - Atención Estatal', label: 'Reportar agresiones' },
+      { value: 'Cruz Roja', label: 'Reportar un accidente' },
+      { value: 'Bomberos', label: 'Reportar un incendio' },
       { value: 'Reporte por otros motivos', label: 'Reporte por otros motivos' }
-    ];
+      ];
+
 
   }
 
   async clickEnviar() {
   
     var id = this.getRandomInt(1,1000);
+    var id_usuario = 6;
     var calle = this.rUrgenteForm.value.calle.trim();
     var frac = this.rUrgenteForm.value.frac.trim();
     var tel = this.rUrgenteForm.value.tel.trim();
@@ -54,6 +56,7 @@ export class RUrgenteComponent implements OnInit {
     var rUrgente =
     {
       "id": id,
+      "id_usuario": id_usuario,
       "calle": calle,
       "frac": frac,
       "tel": tel,
