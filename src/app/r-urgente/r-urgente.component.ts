@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-r-urgente',
@@ -12,7 +13,7 @@ export class RUrgenteComponent implements OnInit {
 
   
 
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
 
   optionsSelect: Array<any>;
@@ -65,7 +66,9 @@ export class RUrgenteComponent implements OnInit {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");
         } else {
+          
           this.registerSuccess(id);
+          this.router.navigate(["/home"]);
         }
 
       },

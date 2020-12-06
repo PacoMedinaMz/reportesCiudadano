@@ -17,7 +17,14 @@ import { EmpleadoComponent } from '../app/empleado/empleado.component';
 import { RealizaComponent } from '../app/realiza/realiza.component';
 import {FinalComponent} from '../app/final/final.component';
 import {ServicioComponent} from '../app/servicio/servicio.component';
+<<<<<<< HEAD
 import { EncargadoComponent } from '../app/encargado/encargado.component';
+=======
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
+import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
+>>>>>>> 44511eac3310c1e68552ff1d8068ee3c081df239
 
  
 
@@ -39,7 +46,14 @@ const routes: Routes = [
   {path: 'realiza', component: RealizaComponent},
   {path: 'final', component: FinalComponent}, 
   {path: 'servicios', component: ServicioComponent},
+<<<<<<< HEAD
   {path: 'encargado', component: EncargadoComponent},
+=======
+  {path: 'login', component:LoginComponent},
+  {path: 'register', component:RegisterComponent},
+  {path: 'loginEmpresa', component:LoginEmpresaComponent},
+  {path: 'registerEmpresa', component:RegisterEmpresaComponent},
+>>>>>>> 44511eac3310c1e68552ff1d8068ee3c081df239
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 

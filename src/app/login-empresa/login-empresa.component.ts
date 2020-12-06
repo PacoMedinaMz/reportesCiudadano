@@ -26,6 +26,9 @@ export class LoginEmpresaComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
+    localStorage.removeItem("id_empresa");
+    localStorage.removeItem("id_usuario");
+    localStorage.removeItem("nombre");
   }
 
   loadingAnimation() {
@@ -73,7 +76,10 @@ export class LoginEmpresaComponent implements OnInit {
             timer: 1500
           })
 
-          this.router.navigate(["/home"]);
+          localStorage.setItem("id_empresa", data.id);
+          localStorage.setItem("nombre", data.nombre);
+
+          this.router.navigate(["/crud"]);
         } else {
           //Registramos al usuario
           this.sendError("El correo no existe o la contraseña es incorrecta.");

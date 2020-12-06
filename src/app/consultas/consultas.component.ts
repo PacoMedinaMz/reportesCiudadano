@@ -84,10 +84,21 @@ export class ConsultasComponent implements OnInit {
 
   @ViewChild('busqueda') inputBusqueda: ElementRef;
 
+  
+  //variables
   optionsSelect: Array<any>;
   id: string;
+  //Vector de reportes
   reportes:any [] = [];
+
+  //Vector de reportes Totales
   reportes2:any [] = [];
+
+  numReportes: string; //numero de reportes totales
+  numRepSol: string; //numero de reportes solucionados
+  numRepPen: string; //numero de reportes pendientes
+
+
   ngOnInit() {
 
     this.optionsSelect = [
@@ -98,6 +109,29 @@ export class ConsultasComponent implements OnInit {
       { value: '5', label: 'Reporte de incendio' },
       { value: '6', label: 'Reporte por otros motivos' }
     ];
+
+
+    //NUMERO DE REPORTES 
+    this.http.get<any>('http://localhost:4201/consulta/numReportes').subscribe(data => {
+      // console.log(data);
+      this.numReportes=data[0].numeroReportes;
+      console.log("Reportes Activos:",this.numReportes);
+    })
+
+     //NUMERO DE REPORTES SOLUCIONADOS
+     this.http.get<any>('http://localhost:4201/consulta/numReportesSol').subscribe(data => {
+      // console.log(data);
+      this.numRepSol=data[0].numeroReportesSol;
+      console.log("Reportes Solucionados:",this.numRepSol);
+    })
+
+     //NUMERO DE REPORTES PENDIENTES
+     this.http.get<any>('http://localhost:4201/consulta/numReportesPen').subscribe(data => {
+      // console.log(data);
+      this.numRepPen=data[0].numeroReportesPen;
+      console.log("Reportes Pendientes:",this.numRepPen);
+    })
+
 
   }
 
