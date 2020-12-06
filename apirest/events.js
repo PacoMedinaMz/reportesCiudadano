@@ -257,6 +257,21 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/servicio', function (req, res) {
+        db.query(
+            'INSERT INTO Servicio (Id_servicio, Nombre, Des ) VALUES (?,?,?)',
+            [req.body.id, req.body.nom, req.body.des],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
             'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',
