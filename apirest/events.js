@@ -123,7 +123,7 @@ function createRouter(db) {
     
     router.post('/rUrgente/alta', function (req, res) {
         db.query(
-            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion, tipo) VALUES (?,?,?,?,?,?,"urgente")',
+            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion, tipo,estado) VALUES (?,?,?,?,?,?,"urgente","activo")',
             [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
@@ -138,7 +138,7 @@ function createRouter(db) {
 
     router.post('/rNormal/alta', function (req, res) {
         db.query(
-            'INSERT INTO reportesGeneral (idRep, nombre, correo,calle, frac, tel, action, situacion,tipo) VALUES (?,?,?,?,?,?,?,?,"normal")',
+            'INSERT INTO reportesGeneral (idRep, nombre, correo,calle, frac, tel, action, situacion,tipo,estado) VALUES (?,?,?,?,?,?,?,?,"normal","activo")',
             [req.body.id ,req.body.nombre ,req.body.correo ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
@@ -153,7 +153,7 @@ function createRouter(db) {
 
     router.post('/rAnonimo/alta', function (req, res) {
         db.query(
-            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion,tipo) VALUES (?,?,?,?,?,?,"anonimo")',
+            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion,tipo,estado) VALUES (?,?,?,?,?,?,"anonimo","activo")',
             [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
@@ -288,9 +288,50 @@ function createRouter(db) {
         );
     });
 
+    //Numero de reportes Activos
+    router.get('/consulta/numReportes', function (req, res) {
+        db.query(
+            'SELECT COUNT(idRep) AS numeroReportes FROM reportesGeneral WHERE estado = "activo" ;',
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results); 
+                }
+            }
+        );
+    });
 
-    
+    //Numero de reportes Solucionados
+    router.get('/consulta/numReportesSol', function (req, res) {
+        db.query(
+            'SELECT COUNT(idRep) AS numeroReportesSol FROM reportesGeneral WHERE estado = "sol" ;',
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results); 
+                }
+            }
+        );
+    });
 
+    //Numero de reportes Pendientes
+    router.get('/consulta/numReportesPen', function (req, res) {
+        db.query(
+            'SELECT COUNT(idRep) AS numeroReportesPen FROM reportesGeneral WHERE estado = "pend" ;',
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results); 
+                }
+            }
+        );
+    });
 
 
 
