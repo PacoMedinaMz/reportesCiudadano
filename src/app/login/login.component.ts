@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
+    localStorage.removeItem("id_empresa");
+    localStorage.removeItem("id_usuario");
+    localStorage.removeItem("nombre");
   }
 
   loadingAnimation() {
@@ -75,6 +78,9 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
+
+          localStorage.setItem("id_usuario", data.id);
+          localStorage.setItem("nombre", data.nombre);
 
           this.router.navigate(["/home"]);
         } else {
