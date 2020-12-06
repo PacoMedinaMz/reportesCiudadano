@@ -48,7 +48,7 @@ function createRouter(db) {
 
     router.post('/user/login', function (req, res) {
         db.query(
-            'SELECT Nombre FROM Usuario WHERE Correo = ? AND password = ? LIMIT 1',
+            'SELECT Nombre, Id_usuario FROM Usuario WHERE Correo = ? AND password = ? LIMIT 1',
             [req.body.correo, req.body.pass],
             (error, results) => {
                 if (error) {
@@ -56,7 +56,7 @@ function createRouter(db) {
                     res.status(500).json({ status: 'error' });
                 } else {
                     if (results[0] != null) {
-                        res.status(200).json({exist: '1', nombre: results[0].Nombre});
+                        res.status(200).json({exist: '1', nombre: results[0].Nombre, id: results[0].Id_usuario});
                     } else {
                         res.status(200).json({exist: '0'});
                     }
@@ -103,7 +103,7 @@ function createRouter(db) {
 
     router.post('/empresa/login', function (req, res) {
         db.query(
-            'SELECT Nombre FROM Institucion WHERE Correo = ? AND Passwd = ? LIMIT 1',
+            'SELECT Nombre, Id_institucion FROM Institucion WHERE Correo = ? AND Passwd = ? LIMIT 1',
             [req.body.correo, req.body.pass],
             (error, results) => {
                 if (error) {
@@ -111,7 +111,7 @@ function createRouter(db) {
                     res.status(500).json({ status: 'error' });
                 } else {
                     if (results[0] != null) {
-                        res.status(200).json({exist: '1', nombre: results[0].Nombre});
+                        res.status(200).json({exist: '1', nombre: results[0].Nombre, id: results[0].Id_institucion});
                     } else {
                         res.status(200).json({exist: '0'});
                     }

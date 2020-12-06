@@ -73,7 +73,10 @@ export class LoginEmpresaComponent implements OnInit {
             timer: 1500
           })
 
-          this.router.navigate(["/home"]);
+          localStorage.setItem("id_empresa", data.id);
+          localStorage.setItem("nombre", data.nombre);
+
+          this.router.navigate(["/crud"]);
         } else {
           //Registramos al usuario
           this.sendError("El correo no existe o la contraseña es incorrecta.");

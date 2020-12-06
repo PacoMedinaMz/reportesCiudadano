@@ -76,6 +76,9 @@ export class LoginComponent implements OnInit {
             timer: 1500
           })
 
+          localStorage.setItem("id_usuario", data.id);
+          localStorage.setItem("nombre", data.nombre);
+
           this.router.navigate(["/home"]);
         } else {
           //Registramos al usuario
