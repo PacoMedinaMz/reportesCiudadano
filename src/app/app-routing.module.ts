@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
+import { ResponsableComponent } from '../app/responsable/responsable.component';
 
  
 
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'loginEmpresa', component:LoginEmpresaComponent},
   {path: 'registerEmpresa', component:RegisterEmpresaComponent},
+  {path: 'resposable', component: ResponsableComponent},
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 
