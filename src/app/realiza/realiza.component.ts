@@ -31,7 +31,7 @@ export class RealizaComponent implements OnInit {
       "idP": idP
     };
 
-    this.http.post<any>('http://localhost:4201/crud/realiza', jPuesto).subscribe({
+    this.http.post<any>('https://pacomedina.mx:4201/crud/realiza', jPuesto).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");

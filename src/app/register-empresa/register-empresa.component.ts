@@ -79,14 +79,14 @@ export class RegisterEmpresaComponent implements OnInit {
     };
 
     //Comprobamos si el correo ya está registrado
-    this.http.post<any>('http://localhost:4201/empresa/exist', registro).subscribe({
+    this.http.post<any>('https://pacomedina.mx:4201/empresa/exist', registro).subscribe({
       next: data => {
         if (data.exist === '1') {//Si el API REST nos retorna verdadero, significa que si existe
           this.sendError("Este correo ya está registrado.");
           this.finishLoadingAnimation();
         } else {
           //Registramos al usuario
-          this.http.post<any>('http://localhost:4201/empresa/registro', registro).subscribe({
+          this.http.post<any>('https://pacomedina.mx:4201/empresa/registro', registro).subscribe({
             next: data => {
               if (data.status === 'error') {
                 this.sendError("No se pudo registrar a causa de error del servidor.");
