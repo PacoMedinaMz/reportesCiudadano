@@ -30,13 +30,14 @@ export class RNormalComponent implements OnInit {
   ngOnInit() {
 
     this.optionsSelect = [
-      { value: 'Contactar a la Policía', label: 'Contactar a la Policía' },
-      { value: 'Reportar un robo', label: 'Reportar un robo' },
-      { value: 'Reportar agresiones', label: 'Reportar agresiones' },
-      { value: 'Reportar un accidente', label: 'Reportar un accidente' },
-      { value: 'Reportar un incendio', label: 'Reportar un incendio' },
+      { value: 'Emergencias - Atención Estatal', label: 'Contactar a la Policía' },
+      { value: 'Policía Municipal', label: 'Reportar un robo' },
+      { value: 'Emergencias - Atención Estatal', label: 'Reportar agresiones' },
+      { value: 'Cruz Roja', label: 'Reportar un accidente' },
+      { value: 'Bomberos', label: 'Reportar un incendio' },
       { value: 'Reporte por otros motivos', label: 'Reporte por otros motivos' }
-    ];
+      ];
+
 
 
   }
@@ -44,6 +45,7 @@ export class RNormalComponent implements OnInit {
    
 
       var id = this.getRandomInt(1, 1000);
+      var id_usuario = 6;
       var nombre = this.rNormalForm.value.nombre.trim();
       var correo = this.rNormalForm.value.correo.trim();
       var calle = this.rNormalForm.value.calle.trim();
@@ -56,6 +58,7 @@ export class RNormalComponent implements OnInit {
       var rNormal =
       {
         "id": id,
+        "id_usuario": id_usuario,
         "nombre": nombre,
         "correo": correo,
         "calle": calle,

@@ -17,12 +17,18 @@ import { EmpleadoComponent } from '../app/empleado/empleado.component';
 import { RealizaComponent } from '../app/realiza/realiza.component';
 import {FinalComponent} from '../app/final/final.component';
 import {ServicioComponent} from '../app/servicio/servicio.component';
+<<<<<<< HEAD
 import { EncargadoComponent } from '../app/encargado/encargado.component';
+=======
+>>>>>>> d7d792dbd294a0dba40061d84b9c075dc305c793
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterEmpresaComponent } from './register-empresa/register-empresa.component';
 import { LoginEmpresaComponent } from './login-empresa/login-empresa.component';
+<<<<<<< HEAD
 import { ResponsableComponent } from '../app/responsable/responsable.component';
+=======
+>>>>>>> d7d792dbd294a0dba40061d84b9c075dc305c793
 
  
 
@@ -44,12 +50,18 @@ const routes: Routes = [
   {path: 'realiza', component: RealizaComponent},
   {path: 'final', component: FinalComponent}, 
   {path: 'servicios', component: ServicioComponent},
+<<<<<<< HEAD
   {path: 'encargado', component: EncargadoComponent},
+=======
+>>>>>>> d7d792dbd294a0dba40061d84b9c075dc305c793
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: 'loginEmpresa', component:LoginEmpresaComponent},
   {path: 'registerEmpresa', component:RegisterEmpresaComponent},
+<<<<<<< HEAD
   {path: 'responsable', component: ResponsableComponent},
+=======
+>>>>>>> d7d792dbd294a0dba40061d84b9c075dc305c793
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 
