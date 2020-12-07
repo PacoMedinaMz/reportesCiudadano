@@ -56,7 +56,7 @@ export class EmpleadoComponent implements OnInit {
     }else{
       activo = '0';
     }
-    var idIns = 1;
+    var idIns = localStorage.getItem("id_empresa");
 
     var jEmpleado =
     {
