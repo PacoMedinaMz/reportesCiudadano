@@ -48,7 +48,7 @@ export class EncargadoComponent implements OnInit {
       "tipo": tipo
     };
 
-    this.http.post<any>('http://localhost:4201/crud/encargado', jEmpleado).subscribe({
+    this.http.post<any>('https://pacomedina.mx:4201/crud/encargado', jEmpleado).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");

@@ -68,7 +68,7 @@ export class RNormalComponent implements OnInit {
         "situacion": situacion
       };
 
-      this.http.post<any>('http://localhost:4201/rNormal/alta', rNormal).subscribe({
+      this.http.post<any>('https://pacomedina.mx:4201/rNormal/alta', rNormal).subscribe({
         next: data => {
           if (data.status === 'error') {
             this.sendError("No se pudo generar reporte a causa de error del servidor.");

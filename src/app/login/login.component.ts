@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
     };
 
     //Comprobamos si el correo ya está registrado
-    this.http.post<any>('http://localhost:4201/user/login', registro).subscribe({
+    this.http.post<any>('https://pacomedina.mx:4201/user/login', registro).subscribe({
       next: data => {
         if (data.exist === '1') {//Si el API REST nos retorna verdadero, significa que si existe
           Swal.fire({

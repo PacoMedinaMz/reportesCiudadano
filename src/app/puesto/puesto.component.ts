@@ -35,7 +35,7 @@ export class PuestoComponent implements OnInit {
 
     };
 
-    this.http.post<any>('http://localhost:4201/crud/puesto', jPuesto).subscribe({
+    this.http.post<any>('https://pacomedina.mx:4201/crud/puesto', jPuesto).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");
