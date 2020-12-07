@@ -31,7 +31,7 @@ export class ResponsableComponent implements OnInit {
       "idS": idS
     };
 
-    this.http.post<any>('http://m.pacomedina.mx.mx:4201/crud/res', jPuesto).subscribe({
+    this.http.post<any>('http://m.pacomedina.mx:4201/crud/res', jPuesto).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");

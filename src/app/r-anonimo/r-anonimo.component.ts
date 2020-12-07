@@ -66,7 +66,7 @@ export class RAnonimoComponent implements OnInit {
       "situacion": situacion
     };
 
-    this.http.post<any>('http://m.pacomedina.mx.mx:4201/rAnonimo/alta', rAnonimo).subscribe({
+    this.http.post<any>('http://m.pacomedina.mx:4201/rAnonimo/alta', rAnonimo).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");

@@ -111,21 +111,21 @@ export class ConsultasComponent implements OnInit {
       ];
 
     //NUMERO DE REPORTES 
-    this.http.get<any>('http://m.pacomedina.mx.mx:4201/consulta/numReportes').subscribe(data => {
+    this.http.get<any>('http://m.pacomedina.mx:4201/consulta/numReportes').subscribe(data => {
       // console.log(data);
       this.numReportes=data[0].numeroReportes;
       console.log("Reportes Activos:",this.numReportes);
     })
 
      //NUMERO DE REPORTES SOLUCIONADOS
-     this.http.get<any>('http://m.pacomedina.mx.mx:4201/consulta/numReportesSol').subscribe(data => {
+     this.http.get<any>('http://m.pacomedina.mx:4201/consulta/numReportesSol').subscribe(data => {
       // console.log(data);
       this.numRepSol=data[0].numeroReportesSol;
       console.log("Reportes Solucionados:",this.numRepSol);
     })
 
      //NUMERO DE REPORTES PENDIENTES
-     this.http.get<any>('http://m.pacomedina.mx.mx:4201/consulta/numReportesPen').subscribe(data => {
+     this.http.get<any>('http://m.pacomedina.mx:4201/consulta/numReportesPen').subscribe(data => {
       // console.log(data);
       this.numRepPen=data[0].numeroReportesPen;
       console.log("Reportes Pendientes:",this.numRepPen);
@@ -148,7 +148,7 @@ export class ConsultasComponent implements OnInit {
       "buscar": buscarid
     };
     console.log("clicked")
-    this.http.post<any>('http://m.pacomedina.mx.mx:4201/consulta/reporte',busqueda).subscribe(data => {
+    this.http.post<any>('http://m.pacomedina.mx:4201/consulta/reporte',busqueda).subscribe(data => {
       // console.log(data);
       this.reportes=data;
       if(this.reportes.length!=0){
@@ -177,7 +177,7 @@ export class ConsultasComponent implements OnInit {
      "buscar": buscarid
    };
    console.log("clicked")
-   this.http.post<any>('http://m.pacomedina.mx.mx:4201/consulta/reporteG',busqueda).subscribe(data => {
+   this.http.post<any>('http://m.pacomedina.mx:4201/consulta/reporteG',busqueda).subscribe(data => {
      // console.log(data);
      this.reportes2=data;
      if(this.reportes2.length!=0){
