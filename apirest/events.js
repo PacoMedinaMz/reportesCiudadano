@@ -123,8 +123,8 @@ function createRouter(db) {
     
     router.post('/rUrgente/alta', function (req, res) {
         db.query(
-            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion, tipo) VALUES (?,?,?,?,?,?,"urgente")',
-            [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
+            'INSERT INTO Reporte (Id_reporte, Id_usuario,calle, frac, tel, action, situacion, tipo,estado) VALUES (?,?,?,?,?,?,?,"urgente","activo")',
+            [req.body.id, req.body.id_usuario,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
                     console.error(error);
@@ -138,8 +138,8 @@ function createRouter(db) {
 
     router.post('/rNormal/alta', function (req, res) {
         db.query(
-            'INSERT INTO reportesGeneral (idRep, nombre, correo,calle, frac, tel, action, situacion,tipo) VALUES (?,?,?,?,?,?,?,?,"normal")',
-            [req.body.id ,req.body.nombre ,req.body.correo ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
+            'INSERT INTO Reporte (Id_reporte, Id_usuario, nombre, correo,calle, frac, tel, action, situacion,tipo,estado) VALUES (?,?,?,?,?,?,?,?,?,"normal","activo")',
+            [req.body.id ,req.body.id_usuario, req.body.nombre ,req.body.correo ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
                     console.error(error);
@@ -153,8 +153,8 @@ function createRouter(db) {
 
     router.post('/rAnonimo/alta', function (req, res) {
         db.query(
-            'INSERT INTO reportesGeneral (idRep, calle, frac, tel, action, situacion,tipo) VALUES (?,?,?,?,?,?,"anonimo")',
-            [req.body.id ,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
+            'INSERT INTO Reporte (Id_reporte, Id_usuario, calle, frac, tel, action, situacion,tipo,estado) VALUES (?,?,?,?,?,?,?,"anonimo","activo")',
+            [req.body.id ,req.body.id_usuario,req.body.calle, req.body.frac, req.body.tel, req.body.action, req.body.situacion],
             (error) => {
                 if (error) {
                     console.error(error);
@@ -168,7 +168,7 @@ function createRouter(db) {
 
     router.post('/consulta/reporte', function (req, res) {
         db.query(
-            'SELECT idRep, action, situacion FROM reportesGeneral WHERE idRep = ?',
+            'SELECT Id_reporte, action, situacion FROM Reporte WHERE Id_reporte = ?',
             [req.body.buscar],
             (error,results) => {
                 if (error) {
@@ -272,9 +272,41 @@ function createRouter(db) {
         );
     });
 
+    router.post('/crud/encargado', function (req, res) {
+        db.query(
+            'INSERT INTO Encargado (Id_servicio, Id_institucion, Des, Tipo ) VALUES (?,?,?,?)',
+            [req.body.idS, req.body.idI, req.body.des, req.body.tipo],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
+    router.post('/crud/res', function (req, res) {
+        db.query(
+            'INSERT INTO Responsable (Id_reporte, Id_servicio) VALUES (?,?)',
+            [req.body.idR, req.body.idS],
+            (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else {
+                    res.status(200).json({ status: 'alta lista' });
+                }
+            }
+        );
+    });
+
+    
+
     router.post('/consulta/reporteG', function (req, res) {
         db.query(
-            'SELECT idRep, action, calle, frac, situacion FROM reportesGeneral;',
+            'SELECT Id_reporte, action, calle, frac, situacion FROM Reporte;',
             [req.body.buscar],
             (error,results) => {
                 if (error) {
@@ -288,9 +320,50 @@ function createRouter(db) {
         );
     });
 
+    //Numero de reportes Activos
+    router.get('/consulta/numReportes', function (req, res) {
+        db.query(
+            'SELECT COUNT(Id_reporte) AS numeroReportes FROM Reporte WHERE estado = "activo" ;',
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results); 
+                }
+            }
+        );
+    });
 
-    
+    //Numero de reportes Solucionados
+    router.get('/consulta/numReportesSol', function (req, res) {
+        db.query(
+            'SELECT COUNT(Id_reporte) AS numeroReportesSol FROM Reporte WHERE estado = "sol" ;',
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results); 
+                }
+            }
+        );
+    });
 
+    //Numero de reportes Pendientes
+    router.get('/consulta/numReportesPen', function (req, res) {
+        db.query(
+            'SELECT COUNT(Id_reporte) AS numeroReportesPen FROM Reporte WHERE estado = "pend" ;',
+            (error,results) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ status: 'error' });
+                } else{
+                    res.status(200).json(results); 
+                }
+            }
+        );
+    });
 
 
 

@@ -35,7 +35,7 @@ import { FinalComponent } from './final/final.component';
 import { RealizaComponent } from './realiza/realiza.component';
 import { EncargadoComponent } from './encargado/encargado.component';
 import { ServicioComponent } from './servicio/servicio.component';
-import { TransaccionesComponent } from './consultas/transacciones/transacciones.component';
+import { ResponsableComponent } from './responsable/responsable.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import { TransaccionesComponent } from './consultas/transacciones/transacciones.
     RealizaComponent,
     EncargadoComponent,
     ServicioComponent,
-    TransaccionesComponent
+    ResponsableComponent
   ],
   imports: [
     BrowserModule,

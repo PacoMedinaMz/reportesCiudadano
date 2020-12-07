@@ -84,20 +84,53 @@ export class ConsultasComponent implements OnInit {
 
   @ViewChild('busqueda') inputBusqueda: ElementRef;
 
+  
+  //variables
   optionsSelect: Array<any>;
   id: string;
+  //Vector de reportes
   reportes:any [] = [];
-  reportes2:any [] = [];
-  ngOnInit() {
 
+  //Vector de reportes Totales
+  reportes2:any [] = [];
+
+  numReportes: string; //numero de reportes totales
+  numRepSol: string; //numero de reportes solucionados
+  numRepPen: string; //numero de reportes pendientes
+
+
+  ngOnInit() {
+    
     this.optionsSelect = [
-      { value: '1', label: 'Contacto a la Policía' },
-      { value: '2', label: 'Reporte de robo' },
-      { value: '3', label: 'Reporte de agresiones' },
-      { value: '4', label: 'Reporte de accidente' },
-      { value: '5', label: 'Reporte de incendio' },
-      { value: '6', label: 'Reporte por otros motivos' }
-    ];
+      { value: 'Emergencias - Atención Estatal', label: 'Contactar a la Policía' },
+      { value: 'Policía Municipal', label: 'Reportar un robo' },
+      { value: 'Emergencias - Atención Estatal', label: 'Reportar agresiones' },
+      { value: 'Cruz Roja', label: 'Reportar un accidente' },
+      { value: 'Bomberos', label: 'Reportar un incendio' },
+      { value: 'Reporte por otros motivos', label: 'Reporte por otros motivos' }
+      ];
+
+    //NUMERO DE REPORTES 
+    this.http.get<any>('http://localhost:4201/consulta/numReportes').subscribe(data => {
+      // console.log(data);
+      this.numReportes=data[0].numeroReportes;
+      console.log("Reportes Activos:",this.numReportes);
+    })
+
+     //NUMERO DE REPORTES SOLUCIONADOS
+     this.http.get<any>('http://localhost:4201/consulta/numReportesSol').subscribe(data => {
+      // console.log(data);
+      this.numRepSol=data[0].numeroReportesSol;
+      console.log("Reportes Solucionados:",this.numRepSol);
+    })
+
+     //NUMERO DE REPORTES PENDIENTES
+     this.http.get<any>('http://localhost:4201/consulta/numReportesPen').subscribe(data => {
+      // console.log(data);
+      this.numRepPen=data[0].numeroReportesPen;
+      console.log("Reportes Pendientes:",this.numRepPen);
+    })
+
 
   }
 
