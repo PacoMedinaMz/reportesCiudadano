@@ -70,7 +70,7 @@ export class EmpleadoComponent implements OnInit {
       "id_institucion": idIns
     };
 
-    this.http.post<any>('https://pacomedina.mx:4201/crud/empleado', jEmpleado).subscribe({
+    this.http.post<any>('http://m.pacomedina.mx.mx:4201/crud/empleado', jEmpleado).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");

@@ -32,7 +32,7 @@ export class EstadoComponent implements OnInit {
       "idE": idE
     };
 
-    this.http.post<any>('https://pacomedina.mx:4201/crud/atiende', jEmpleado).subscribe({
+    this.http.post<any>('http://m.pacomedina.mx.mx:4201/crud/atiende', jEmpleado).subscribe({
       next: data => {
         if (data.status === 'error') {
           this.sendError("No se pudo generar reporte a causa de error del servidor.");
